@@ -1,0 +1,181 @@
+---
+import Logo from "./Logo.astro";
+import { useTranslations, localizedHref, type Locale } from "../i18n";
+
+interface Props {
+  lang?: Locale;
+}
+const { lang = "en" } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="grid">
+      <div class="brand">
+        <Logo lang={lang} />
+        <p class="tag">{t.common.footer.tagline}</p>
+      </div>
+
+      <div class="col">
+        <h4>{t.common.footer.visit}</h4>
+        <address>
+          {
+            t.common.footer.addressLines.map((line, i) => (
+              <>
+                {line}
+                {i < t.common.footer.addressLines.length - 1 && <br />}
+              </>
+            ))
+          }
+        </address>
+        <a
+          class="link"
+          href="https://www.google.com/maps/search/?api=1&query=Klinik+Ng+Poh+Huat+Bandar+Puteri+Puchong"
+          target="_blank"
+          rel="noopener noreferrer">{t.common.footer.openInMaps}</a
+        >
+      </div>
+
+      <div class="col">
+        <h4>{t.common.footer.contact}</h4>
+        <ul>
+          <li>
+            <a href="tel:+60321818686">+60 3-2181 8686</a>
+            <span>{t.common.footer.phoneNote}</span>
+          </li>
+          <li>
+            <a
+              href="https://wa.me/60321818686"
+              target="_blank"
+              rel="noopener noreferrer">{t.common.footer.whatsappLink}</a
+            >
+          </li>
+          <li>
+            <a href="mailto:info@knph.my">info@knph.my</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h4>{t.common.footer.services}</h4>
+        <ul>
+          <li>
+            <a href={localizedHref("/health-screening", lang)}
+              >{t.common.footer.serviceLinks.screening}</a
+            >
+          </li>
+          <li>
+            <a href={localizedHref("/vaccinations", lang)}
+              >{t.common.footer.serviceLinks.vaccinations}</a
+            >
+          </li>
+          <li>
+            <a href={localizedHref("/chronic-disease", lang)}
+              >{t.common.footer.serviceLinks.chronic}</a
+            >
+          </li>
+          <li>
+            <a href={localizedHref("/about", lang)}
+              >{t.common.footer.serviceLinks.about}</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bar">
+      <span>© <span id="copyright-year">2026</span> Klinik Ng Poh Huat. {t.common.footer.copyright}</span>
+      <span class="muted">{t.common.footer.regNote}</span>
+    </div>
+  </div>
+</footer>
+
+<script is:inline>
+  document.getElementById("copyright-year").textContent = new Date().getFullYear();
+</script>
+
+<style>
+  .site-footer {
+    background: linear-gradient(180deg, #faf9ff 0%, #f3eefe 100%);
+    border-top: 1px solid var(--line);
+    padding: clamp(3rem, 5vw, 5rem) 0 2rem;
+    margin-top: 4rem;
+    color: var(--ink-2);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 2.5rem;
+  }
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 520px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .tag {
+    margin-top: 1rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 32ch;
+  }
+  h4 {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--purple-800);
+    margin: 0 0 1rem;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+  }
+  :global(body.lang-zh) h4 {
+    text-transform: none;
+    letter-spacing: 0.04em;
+  }
+  address {
+    font-style: normal;
+    color: var(--ink-2);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  ul li {
+    font-size: 0.95rem;
+  }
+  ul li span {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-left: 0.25rem;
+  }
+  .link {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  .bar {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(91, 33, 182, 0.1);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .muted {
+    color: var(--muted);
+  }
+</style>

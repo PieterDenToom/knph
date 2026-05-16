@@ -1,0 +1,46 @@
+---
+import { pathForLocale, useTranslations, type Locale } from "../i18n";
+
+interface Props {
+  lang: Locale;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const currentPath = Astro.url.pathname;
+const targetLang: Locale = lang === "zh" ? "en" : "zh";
+const targetHref = pathForLocale(currentPath, targetLang);
+const label =
+  targetLang === "zh"
+    ? t.common.languageSwitcher.switchToZh
+    : t.common.languageSwitcher.switchToEn;
+const ariaLabel = `${t.common.languageSwitcher.label}: ${label}`;
+---
+
+<a class="lang-switch" href={targetHref} hreflang={targetLang} aria-label={ariaLabel}>
+  {label}
+</a>
+
+<style>
+  .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 36px;
+    padding: 0 0.7rem;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--ink-2);
+    border: 1px solid var(--line);
+    background: #fff;
+    line-height: 1;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .lang-switch:hover {
+    background: var(--purple-50);
+    border-color: var(--purple-300);
+    color: var(--purple-800);
+  }
+</style>

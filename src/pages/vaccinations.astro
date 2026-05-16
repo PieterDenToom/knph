@@ -1,0 +1,220 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import Icon from "../components/Icon.astro";
+import { useTranslations, type Locale } from "../i18n";
+
+const lang: Locale = "en";
+const t = useTranslations(lang);
+
+const groupIcons = ["shield", "family", "map"] as const;
+---
+
+<Layout
+  lang={lang}
+  title={t.vaccinations.hero.eyebrow}
+  description={t.vaccinations.hero.description}
+  active="vaccinations"
+>
+  <PageHero
+    eyebrow={t.vaccinations.hero.eyebrow}
+    title={t.vaccinations.hero.title}
+    description={t.vaccinations.hero.description}
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3">
+        {
+          t.vaccinations.groups.map((g, idx) => (
+            <article class="vgroup">
+              <div class="icon-wrap">
+                <Icon name={groupIcons[idx]} size={26} />
+              </div>
+              <h3>{g.title}</h3>
+              <ul>
+                {g.items.map((i) => (
+                  <li>
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="14"
+                      height="14"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12l5 5L20 7" />
+                    </svg>
+                    <span>{i}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container info-grid">
+      <div>
+        <span class="eyebrow">{t.vaccinations.info.eyebrow}</span>
+        <h2>{t.vaccinations.info.title}</h2>
+        <ul class="faq">
+          {
+            t.vaccinations.info.faq.map((item) => (
+              <li>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <aside class="card cta-card">
+        <h3>{t.vaccinations.cta.title}</h3>
+        <p>{t.vaccinations.cta.lead}</p>
+        <div class="buttons">
+          <a href="tel:+60321818686" class="btn btn-primary">
+            <Icon name="phone" size={16} /> {t.common.cta.callPhone}
+          </a>
+          <a
+            href="https://wa.me/60321818686"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-ghost">{t.common.cta.whatsapp}</a
+          >
+        </div>
+      </aside>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .vgroup {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 1.75rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+  .vgroup:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--purple-100);
+  }
+  .icon-wrap {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--purple-100), #fff);
+    color: var(--purple-700);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    border: 1px solid var(--purple-100);
+  }
+  .vgroup h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  .vgroup ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .vgroup ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    font-size: 0.93rem;
+    color: var(--ink-2);
+  }
+  .vgroup ul li svg {
+    color: var(--purple-600);
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .faq {
+    list-style: none;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+  }
+  .faq li {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+  }
+  .faq h3 {
+    font-size: 1rem;
+    margin: 0 0 0.35rem;
+  }
+  .faq p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  .cta-card {
+    position: sticky;
+    top: 110px;
+    background: linear-gradient(
+      160deg,
+      var(--purple-700) 0%,
+      var(--purple-900) 100%
+    );
+    color: #fff;
+    border: none;
+  }
+  .cta-card h3 {
+    color: #fff;
+    font-size: 1.2rem;
+  }
+  .cta-card p {
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .cta-card .buttons {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  .cta-card .btn-primary {
+    background: #fff;
+    color: var(--purple-800);
+  }
+  .cta-card .btn-primary:hover {
+    background: var(--purple-50);
+  }
+  .cta-card .btn-ghost {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+  .cta-card .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+</style>

@@ -1,0 +1,319 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import PageHero from "../../components/PageHero.astro";
+import OfferCard from "../../components/OfferCard.astro";
+import Icon from "../../components/Icon.astro";
+import { useTranslations, type Locale } from "../../i18n";
+
+const lang: Locale = "zh";
+const t = useTranslations(lang);
+
+const all = await getCollection("offers");
+all.sort((a, b) => a.data.order - b.data.order);
+
+const groups = [
+  {
+    id: "screening",
+    category: "screening",
+    label: t.screening.groups.screening.label,
+    description: t.screening.groups.screening.description,
+    icon: "clipboard" as const,
+    items: all.filter((o) => o.data.category === "screening"),
+  },
+  {
+    id: "womens",
+    category: "womens-health",
+    label: t.screening.groups.womens.label,
+    description: t.screening.groups.womens.description,
+    icon: "family" as const,
+    items: all.filter((o) => o.data.category === "womens-health"),
+  },
+  {
+    id: "specialised",
+    category: "specialised",
+    label: t.screening.groups.specialised.label,
+    description: t.screening.groups.specialised.description,
+    icon: "heart" as const,
+    items: all.filter((o) => o.data.category === "specialised"),
+  },
+  {
+    id: "allergy",
+    category: "allergy",
+    label: t.screening.groups.allergy.label,
+    description: t.screening.groups.allergy.description,
+    icon: "shield" as const,
+    items: all.filter((o) => o.data.category === "allergy"),
+  },
+];
+
+---
+
+<Layout
+  lang={lang}
+  title={t.screening.hero.eyebrow}
+  description={t.screening.hero.description}
+  active="screening"
+>
+  <PageHero
+    eyebrow={t.screening.hero.eyebrow}
+    title={t.screening.hero.title}
+    description={t.screening.hero.description}
+  />
+
+  <section class="jump-nav-wrap">
+    <div class="container">
+      <nav class="jump-nav" aria-label={t.screening.jumpNav}>
+        {
+          groups.map((g) => (
+            <a href={`#${g.id}`}>
+              <Icon name={g.icon} size={16} />
+              <span>{g.label}</span>
+              <span class="count">{g.items.length}</span>
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </section>
+
+  {
+    groups.map((g) => (
+      <section class="section group" id={g.id}>
+        <div
+          class="group-banner"
+          style={`--cat-img: url('/categories/${g.category}.webp')`}
+          aria-hidden="true"
+        />
+        <div class="container">
+          <div class="group-head">
+            <span class="eyebrow">{g.label}</span>
+            <h2>{g.label}</h2>
+            <p>{g.description}</p>
+          </div>
+          <div class="grid grid-3">
+            {g.items.map((offer) => (
+              <OfferCard offer={offer} lang={lang} showImage={false} />
+            ))}
+          </div>
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="section section--soft">
+    <div class="container how">
+      <div class="section-head">
+        <span class="eyebrow">{t.screening.how.eyebrow}</span>
+        <h2>{t.screening.how.title}</h2>
+      </div>
+      <div class="grid grid-3 steps">
+        <div class="step">
+          <span class="num">1</span>
+          <h3>{t.screening.how.steps[0].title}</h3>
+          <p>
+            {t.screening.how.steps[0].bodyBefore}
+            <a href="tel:+60321818686">+60 3-2181 8686</a>
+            {t.screening.how.steps[0].bodyAfter}
+          </p>
+        </div>
+        <div class="step">
+          <span class="num">2</span>
+          <h3>{t.screening.how.steps[1].title}</h3>
+          <p>{t.screening.how.steps[1].body}</p>
+        </div>
+        <div class="step">
+          <span class="num">3</span>
+          <h3>{t.screening.how.steps[2].title}</h3>
+          <p>{t.screening.how.steps[2].body}</p>
+        </div>
+      </div>
+
+      <div class="cta-block">
+        <div>
+          <h3>{t.screening.cta.title}</h3>
+          <p>{t.screening.cta.lead}</p>
+        </div>
+        <div class="cta-buttons">
+          <a href="tel:+60321818686" class="btn btn-primary">
+            <Icon name="phone" size={16} /> {t.common.cta.callUs}
+          </a>
+          <a
+            href="https://wa.me/60321818686"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-ghost">{t.common.cta.whatsapp}</a
+          >
+        </div>
+      </div>
+
+      <p class="footnote">{t.screening.footnote}</p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .jump-nav-wrap {
+    position: sticky;
+    top: 64px;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid var(--line);
+    padding: 0.6rem 0;
+  }
+  .jump-nav {
+    display: flex;
+    gap: 0.4rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .jump-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .jump-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink-2);
+    background: var(--purple-50);
+    border: 1px solid transparent;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.15s ease, color 0.15s ease,
+      border-color 0.15s ease;
+  }
+  .jump-nav a:hover {
+    background: var(--purple-100);
+    color: var(--purple-800);
+  }
+  .jump-nav .count {
+    background: #fff;
+    color: var(--purple-700);
+    font-size: 0.7rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    font-weight: 600;
+    border: 1px solid var(--purple-100);
+  }
+
+  .group {
+    padding-top: 0;
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+    scroll-margin-top: 120px;
+  }
+  .group-banner {
+    width: 100%;
+    aspect-ratio: 5 / 1;
+    max-height: 240px;
+    background-image: var(--cat-img),
+      linear-gradient(135deg, var(--purple-100), var(--purple-50));
+    background-size: cover, cover;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+  .group-head {
+    max-width: 760px;
+    margin: 0 auto clamp(1.75rem, 3vw, 2.5rem);
+    text-align: center;
+  }
+  .group-head p {
+    color: var(--muted);
+    font-size: 1rem;
+  }
+
+  .steps {
+    margin-bottom: 3rem;
+  }
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.75rem;
+  }
+  .step .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--purple-100);
+    color: var(--purple-800);
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  .step h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+  .step p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .cta-block {
+    background: linear-gradient(
+      160deg,
+      var(--purple-700) 0%,
+      var(--purple-900) 100%
+    );
+    border-radius: 6px;
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .cta-block h3 {
+    color: #fff;
+    margin: 0 0 0.5rem;
+    font-size: 1.3rem;
+  }
+  .cta-block p {
+    color: rgba(255, 255, 255, 0.82);
+    margin: 0;
+    max-width: 48ch;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .cta-buttons .btn-primary {
+    background: #fff;
+    color: var(--purple-800);
+  }
+  .cta-buttons .btn-primary:hover {
+    background: var(--purple-50);
+  }
+  .cta-buttons .btn-ghost {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+  .cta-buttons .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+
+  .footnote {
+    margin-top: 2.5rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>

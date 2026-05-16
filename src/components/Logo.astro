@@ -1,0 +1,83 @@
+---
+import { localizedHref, type Locale } from "../i18n";
+
+interface Props {
+  variant?: "full" | "mark";
+  size?: number;
+  lang?: Locale;
+}
+const { variant = "full", size = 40, lang = "en" } = Astro.props;
+const homeHref = localizedHref("/", lang);
+---
+
+<a href={homeHref} class="logo" aria-label="Klinik Ng Poh Huat — Home">
+  <span class="mark" style={`width:${size}px;height:${size}px;`}>
+    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#8B5CF6" />
+          <stop offset="100%" stop-color="#5B21B6" />
+        </linearGradient>
+      </defs>
+      <rect width="48" height="48" rx="12" fill="url(#lg)" />
+      <path
+        d="M20 12h8v8h8v8h-8v8h-8v-8h-8v-8h8z"
+        fill="#fff"
+        opacity="0.95"
+      />
+    </svg>
+  </span>
+  {
+    variant === "full" && (
+      <span class="wordmark">
+        <span class="line1">Klinik Ng Poh Huat</span>
+        <span class="line2">Bandar Puteri Puchong</span>
+      </span>
+    )
+  }
+</a>
+
+<style>
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .mark {
+    display: block;
+    line-height: 0;
+    flex-shrink: 0;
+  }
+  .mark svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 12px;
+  }
+  .wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  .line1 {
+    font-family: "Manrope", "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .line2 {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 480px) {
+    .line2 {
+      display: none;
+    }
+  }
+</style>

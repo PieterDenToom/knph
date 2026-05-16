@@ -1,0 +1,236 @@
+---
+import Logo from "./Logo.astro";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+import Icon from "./Icon.astro";
+import { useTranslations, localizedHref, type Locale } from "../i18n";
+
+interface Props {
+  active?: "home" | "about" | "screening" | "vaccinations" | "chronic" | "contact";
+  lang?: Locale;
+}
+const { active = "home", lang = "en" } = Astro.props;
+const t = useTranslations(lang);
+
+const links = [
+  { href: "/", label: t.common.nav.home, id: "home" },
+  { href: "/about", label: t.common.nav.about, id: "about" },
+  { href: "/health-screening", label: t.common.nav.screening, id: "screening" },
+  { href: "/vaccinations", label: t.common.nav.vaccinations, id: "vaccinations" },
+  { href: "/chronic-disease", label: t.common.nav.chronic, id: "chronic" },
+  { href: "/contact", label: t.common.nav.contact, id: "contact" },
+];
+---
+
+<header class="site-header">
+  <div class="container row">
+    <Logo lang={lang} />
+
+    <input
+      type="checkbox"
+      id="nav-toggle"
+      class="nav-toggle"
+      aria-hidden="true"
+    />
+
+    <nav aria-label="Primary">
+      <ul class="nav-list">
+        {
+          links.map((l) => (
+            <li>
+              <a
+                href={localizedHref(l.href, lang)}
+                class:list={["nav-link", { active: l.id === active }]}
+                aria-current={l.id === active ? "page" : undefined}
+              >
+                {l.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="utility">
+      <LanguageSwitcher lang={lang} />
+      <a
+        href="tel:+60321818686"
+        class="btn btn-primary nav-cta"
+        aria-label={t.common.nav.callCta}
+      >
+        <span class="cta-text">{t.common.nav.callCta}</span>
+        <span class="cta-icon" aria-hidden="true">
+          <Icon name="phone" size={18} />
+        </span>
+      </a>
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(var(--surface-rgb), 0.7);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+  }
+  nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    min-width: 0;
+  }
+  .nav-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap;
+  }
+  .nav-link {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink-2);
+    white-space: nowrap;
+  }
+  .nav-link:hover {
+    background: var(--purple-50);
+    color: var(--purple-700);
+  }
+  .nav-link.active {
+    color: var(--purple-700);
+    background: var(--purple-100);
+  }
+
+  .utility {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+  .nav-cta {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+  .nav-cta .cta-icon {
+    display: none;
+    line-height: 0;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+  .hamburger {
+    display: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--ink);
+    border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  /* Narrower desktop — tighten nav padding */
+  @media (max-width: 1100px) {
+    .nav-link {
+      padding: 0.45rem 0.55rem;
+      font-size: 0.85rem;
+    }
+    .row {
+      gap: 0.6rem;
+    }
+  }
+
+  /* Tablet — swap CTA text for icon to free up nav space */
+  @media (max-width: 1000px) {
+    .nav-cta {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(91, 33, 182, 0.25);
+    }
+    .nav-cta .cta-text {
+      display: none;
+    }
+    .nav-cta .cta-icon {
+      display: inline-flex;
+      color: #fff;
+    }
+  }
+
+  /* Mobile — collapse nav links into hamburger drawer */
+  @media (max-width: 860px) {
+    .hamburger {
+      display: inline-flex;
+    }
+    nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+      box-shadow: var(--shadow-md);
+      padding: 0.75rem 1.25rem 1.25rem;
+      transform: translateY(-10px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      justify-content: stretch;
+    }
+    .nav-toggle:checked ~ nav {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .nav-list {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.25rem;
+      width: 100%;
+    }
+    .nav-link {
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      font-size: 0.95rem;
+    }
+    .nav-toggle:checked ~ .utility .hamburger span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+    .nav-toggle:checked ~ .utility .hamburger span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle:checked ~ .utility .hamburger span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+  }
+</style>

@@ -1,0 +1,59 @@
+---
+interface Props {
+  name:
+    | "stethoscope"
+    | "syringe"
+    | "heart"
+    | "shield"
+    | "clipboard"
+    | "pill"
+    | "phone"
+    | "map"
+    | "clock"
+    | "check"
+    | "arrow"
+    | "star"
+    | "family";
+  size?: number;
+}
+const { name, size = 22 } = Astro.props;
+
+const paths: Record<string, string> = {
+  stethoscope:
+    'M6 3v6a5 5 0 0 0 10 0V3M9 3h-3M16 3h-3M11 14v3a4 4 0 0 0 8 0v-1M19 13a2 2 0 1 1 0 4 2 2 0 0 1 0-4z',
+  syringe:
+    'M14 4l6 6M17 7l3-3M11 7l6 6M9 9l8 8M3 21l3-3M6 18l-2 2-1-1 2-2M6 18l4-4 4 4-4 4z',
+  heart:
+    'M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z',
+  shield: 'M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6l8-3z',
+  clipboard:
+    'M9 4h6a1 1 0 0 1 1 1v2H8V5a1 1 0 0 1 1-1zM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zM9 12h6M9 16h4',
+  pill: 'M10.5 3.5a5 5 0 0 1 7 7l-7 7a5 5 0 0 1-7-7l7-7zM7 7l10 10',
+  phone:
+    'M5 4h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z',
+  map: 'M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2V6zM9 4v14M15 6v14',
+  clock: 'M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zM12 6v6l4 2',
+  check: 'M5 12l5 5L20 7',
+  arrow: 'M5 12h14M13 5l7 7-7 7',
+  star: 'M12 3l2.9 6 6.6 1-4.8 4.6 1.2 6.6L12 18l-5.9 3.2L7.3 14.6 2.5 10l6.6-1z',
+  family:
+    'M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM3 20v-2a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v2M13 20v-2a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v2',
+};
+
+const d = paths[name] || paths.heart;
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.8"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+>
+  <path d={d}></path>
+</svg>

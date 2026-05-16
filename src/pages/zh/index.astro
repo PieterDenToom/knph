@@ -1,13 +1,13 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
-import OfferCard from "../components/OfferCard.astro";
-import ServiceCard from "../components/ServiceCard.astro";
-import Icon from "../components/Icon.astro";
-import { useTranslations, localizedHref, type Locale } from "../i18n";
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/Hero.astro";
+import OfferCard from "../../components/OfferCard.astro";
+import ServiceCard from "../../components/ServiceCard.astro";
+import Icon from "../../components/Icon.astro";
+import { useTranslations, localizedHref, type Locale } from "../../i18n";
 
-const lang: Locale = "en";
+const lang: Locale = "zh";
 const t = useTranslations(lang);
 
 const offers = await getCollection("offers");
@@ -276,7 +276,6 @@ const serviceHrefs = [
       setActive(idx);
     };
 
-    // Position to first real card before paint
     if (isLoop) jumpTo(K);
 
     let animFrame = 0;
@@ -344,7 +343,6 @@ const serviceHrefs = [
       () => {
         clearTimeout(scrollTimer);
         scrollTimer = window.setTimeout(() => {
-          // After scroll settles, find closest card to center
           const sr = scroller.getBoundingClientRect();
           const center = sr.left + sr.width / 2;
           let best = domIndex;
