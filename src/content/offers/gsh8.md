@@ -51,6 +51,5 @@ addOn:
     - EBV VCA IgA
 badge: "Most flexible"
 badgeZh: "最灵活"
-featuredOnHome: true
 order: 3
 ---

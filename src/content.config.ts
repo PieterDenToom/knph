@@ -34,7 +34,6 @@ const offers = defineCollection({
     notesZh: z.array(z.string()).default([]),
     badge: z.string().optional(),
     badgeZh: z.string().optional(),
-    featuredOnHome: z.boolean().default(false),
     order: z.number().default(100),
   }),
 });

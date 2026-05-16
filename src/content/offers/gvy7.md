@@ -73,6 +73,5 @@ addOn:
     - Lipoprotein (a)
 badge: "Most popular"
 badgeZh: "最受欢迎"
-featuredOnHome: true
 order: 4
 ---

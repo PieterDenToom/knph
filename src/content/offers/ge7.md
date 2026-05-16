@@ -26,6 +26,5 @@ features:
   - Urine FEME
 sample: "Blood draw + urine sample. Fasting required."
 sampleZh: "抽血 + 尿液样本,需空腹。"
-featuredOnHome: true
 order: 1
 ---

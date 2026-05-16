@@ -1,0 +1,162 @@
+media:
+  - name: categories
+    label: Category banner images
+    input: public/categories
+    output: /categories
+    extensions: [webp, jpg, jpeg, png]
+    categories: [image]
+  - name: uploads
+    label: General images
+    input: public
+    output: /
+    extensions: [webp, jpg, jpeg, png, svg]
+    categories: [image]
+
+content:
+  - name: offers
+    label: Health Offers
+    type: collection
+    path: src/content/offers
+    format: yaml-frontmatter
+    filename: "{fields.code | lower}.md"
+    view:
+      fields: [code, name, category, order]
+      sort: [order, code, name, category]
+      default:
+        sort: order
+        order: asc
+      search: [code, name, nameZh, tagline, taglineZh, description]
+    fields:
+      - name: code
+        label: Offer code
+        type: string
+        required: true
+        description: Short uppercase identifier (e.g. GE7, GSH8). Becomes the filename and URL anchor.
+        pattern:
+          regex: "^[A-Z0-9-]+$"
+          message: Use uppercase letters, numbers, and dashes only.
+
+      - name: category
+        label: Category
+        type: select
+        required: true
+        options:
+          values:
+            - { value: screening, label: Screening Panels }
+            - { value: womens-health, label: Women's Health }
+            - { value: specialised, label: Specialised }
+            - { value: allergy, label: Allergy }
+
+      - name: order
+        label: Display order
+        type: number
+        default: 100
+        description: Lower numbers appear first in lists and the carousel.
+
+      - name: badge
+        label: Badge (English)
+        type: string
+        description: Short corner tag, e.g. "Most popular". Leave empty to hide.
+
+      - name: badgeZh
+        label: Badge (Chinese)
+        type: string
+
+      - name: name
+        label: Name (English)
+        type: string
+        required: true
+
+      - name: nameZh
+        label: Name (Chinese)
+        type: string
+
+      - name: tagline
+        label: Tagline (English)
+        type: string
+        required: true
+        description: One short sentence shown under the name.
+
+      - name: taglineZh
+        label: Tagline (Chinese)
+        type: string
+
+      - name: description
+        label: Description (English)
+        type: text
+        description: Longer paragraph shown on the detail page (not in the carousel card).
+
+      - name: descriptionZh
+        label: Description (Chinese)
+        type: text
+
+      - name: price
+        label: Price
+        type: object
+        fields:
+          - name: promo
+            label: Promotional price
+            type: number
+            required: true
+          - name: normal
+            label: Normal price (struck-through)
+            type: number
+          - name: tagOn
+            label: Tag-on price
+            type: number
+            description: Optional discounted price when added to another test.
+
+      - name: currency
+        label: Currency
+        type: string
+        default: RM
+
+      - name: features
+        label: Features
+        type: string
+        list: true
+        description: Bullet points listed on the card. Keep each one short.
+
+      - name: addOn
+        label: Add-on selection
+        type: object
+        description: Optional. Use for packages that include a customisable selection (e.g. "Pick any 8 add-ons").
+        fields:
+          - name: selectCount
+            label: Number the customer can pick
+            type: number
+          - name: label
+            label: Custom label
+            type: string
+          - name: items
+            label: Available add-on items
+            type: string
+            list: true
+
+      - name: sample
+        label: Sample requirements (English)
+        type: string
+        description: e.g. "Blood draw + urine sample. Fasting required."
+
+      - name: sampleZh
+        label: Sample requirements (Chinese)
+        type: string
+
+      - name: tat
+        label: Turnaround time (English)
+        type: string
+        description: e.g. "Results in 2–3 working days."
+
+      - name: tatZh
+        label: Turnaround time (Chinese)
+        type: string
+
+      - name: notes
+        label: Notes (English)
+        type: string
+        list: true
+
+      - name: notesZh
+        label: Notes (Chinese)
+        type: string
+        list: true
