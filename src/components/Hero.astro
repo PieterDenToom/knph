@@ -95,6 +95,10 @@ const t = useTranslations(lang);
     position: relative;
     overflow: hidden;
     padding: clamp(3rem, 6vw, 5rem) 0 clamp(3.5rem, 7vw, 6rem);
+    min-height: calc(100vh - 64px);
+    min-height: calc(100dvh - 64px);
+    display: flex;
+    align-items: center;
     background:
       radial-gradient(
         ellipse at top left,
@@ -102,6 +106,9 @@ const t = useTranslations(lang);
         rgba(196, 181, 253, 0) 60%
       ),
       linear-gradient(180deg, #faf9ff 0%, #ffffff 100%);
+  }
+  .hero > .container {
+    width: 100%;
   }
   .bg-blob {
     position: absolute;

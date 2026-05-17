@@ -5,6 +5,12 @@ media:
     output: /categories
     extensions: [webp, jpg, jpeg, png]
     categories: [image]
+  - name: clinic
+    label: Clinic gallery (About page masonry)
+    input: public/clinic
+    output: /clinic
+    extensions: [webp, jpg, jpeg, png, avif]
+    categories: [image]
   - name: uploads
     label: General images
     input: public
