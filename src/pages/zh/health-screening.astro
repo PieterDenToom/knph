@@ -45,7 +45,15 @@ const groups = [
     icon: "shield" as const,
     items: all.filter((o) => o.data.category === "allergy"),
   },
-];
+  {
+    id: "infectious",
+    category: "infectious",
+    label: t.screening.groups.infectious.label,
+    description: t.screening.groups.infectious.description,
+    icon: "pill" as const,
+    items: all.filter((o) => o.data.category === "infectious"),
+  },
+].filter((g) => g.items.length > 0);
 
 ---
 

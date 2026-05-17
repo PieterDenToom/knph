@@ -75,7 +75,7 @@ export const zh: Translations = {
         walkins: "欢迎随到随诊",
       },
       cards: {
-        consult: { title: "一般咨询", sub: "星期一至星期六" },
+        consult: { title: "一般咨询", sub: "每日营业" },
         vacc: { title: "疫苗接种", sub: "成人与儿童" },
         chronic: {
           title: "慢性病管理",
@@ -89,6 +89,16 @@ export const zh: Translations = {
       title: "实惠、简单的健康检查方案",
       lead: "浏览我们全部的健康检查配套与化验项目,左右滑动了解详情。每项配套均包含取样及易读报告。",
       cta: "前往完整配套页面",
+    },
+    weightMgmt: {
+      eyebrow: "需医生咨询",
+      title: "医学体重管理",
+      lead: "针对符合条件的患者,我们的医生提供结合处方注射药物的体重管理方案,并配以营养与生活方式指导。每一份方案均从完整咨询开始,并由医生定期跟进。",
+      points: [
+        "开方前进行医学评估与适应症审核",
+        "持续监测体重、副作用与代谢指标",
+        "结合实用的营养与运动建议",
+      ],
     },
     services: {
       eyebrow: "我们的服务",
@@ -111,9 +121,9 @@ export const zh: Translations = {
             "提供成人、儿童与旅行疫苗,包括流感、HPV、肝炎等。",
         },
         {
-          title: "慢性病管理",
+          title: "慢性病与心脏护理",
           description:
-            "为糖尿病、高血压、胆固醇与哮喘等慢性病提供长期管理。",
+            "为糖尿病、高血压、胆固醇与哮喘等慢性病提供长期管理——并在心脏科与心血管风险评估方面拥有丰富经验。",
         },
       ],
     },
@@ -122,14 +132,14 @@ export const zh: Translations = {
       title: "在开药之前,先用心倾听。",
       lead: "我们相信,优质的基层医疗源自真正了解您——您的生活习惯、过往病史与最关心的事情。在 Klinik Ng Poh Huat,您会获得不被催促的诊询、易懂的解释,以及一位可以长期托付的医生。",
       points: [
+        "心脏科专长丰富——心脏健康检查与长期心血管护理",
         "不催促、不仓促——让您完整说完每个问题",
-        "健康检查配套价格透明、清楚明白",
         "位置便利,就在 Bandar Puteri 蒲种",
         "为慢性病患者提供 WhatsApp 跟进服务",
       ],
       stats: [
         { num: "15+", label: "年家庭医学经验" },
-        { num: "6 天", label: "每周营业,包括星期六" },
+        { num: "7 天", label: "每周营业,全年无休" },
         { num: "全年龄", label: "从幼儿到年长者皆可" },
       ],
     },
@@ -174,16 +184,20 @@ export const zh: Translations = {
         description: "慢性病护理是一段路程——我们会陪您一路走下去。",
       },
     ],
+    gallery: {
+      eyebrow: "诊所内部",
+      title: "走进我们的诊所",
+      lead: "为您预览诊所环境与到访时会见到的团队。",
+    },
     hours: {
       eyebrow: "营业时间",
       title: "您可以何时到访",
       lead: "我们欢迎随到随诊,但若能提前以 WhatsApp 通知,将能更顺畅地为您安排。",
       rows: [
-        { day: "星期一至星期五", time: "上午 9:00 – 晚上 9:00" },
-        { day: "星期六", time: "上午 9:00 – 傍晚 6:00" },
-        { day: "星期日与公共假期", time: "休息" },
+        { day: "星期一至星期五", time: "上午 9:00 – 晚上 8:00" },
+        { day: "星期六", time: "上午 9:00 – 傍晚 5:00" },
+        { day: "星期日", time: "上午 9:00 – 下午 1:00" },
       ],
-      note: "正式开业后营业时间可能调整——请来电确认。",
     },
   },
   screening: {
@@ -213,6 +227,11 @@ export const zh: Translations = {
         label: "过敏与食物不耐受",
         description:
           "IgE 过敏与 IgG 食物不耐受检验——可单独选择或以组合配套呈现。",
+      },
+      infectious: {
+        label: "传染病与性传播感染",
+        description:
+          "为性传播感染及常见传染病提供谨慎、保密的筛查——包括肝炎、梅毒、HIV 与披衣菌/淋病等检验。",
       },
     },
     jumpNav: "跳至章节",
@@ -266,7 +285,6 @@ export const zh: Translations = {
         title: "儿童疫苗",
         items: [
           "卫生部建议的儿童常规接种时间表",
-          "MMR 麻疹、腮腺炎、风疹",
           "Varicella 水痘",
           "Hepatitis A / B 加强针",
           "HPV(9 岁起)",
@@ -310,6 +328,13 @@ export const zh: Translations = {
     cta: {
       title: "需要快速建议?",
       lead: "告诉我们您的年龄、出行计划或孩子的接种历史——我们会为您整理一份清晰的接种时间表。",
+    },
+    pricing: {
+      eyebrow: "价格",
+      title: "疫苗单剂价格",
+      lead: "单剂价格清楚透明。多剂疫苗按每次到诊计费——请提前来电确认库存与接种安排。",
+      vaccineHeader: "疫苗名称",
+      priceHeader: "价格",
     },
   },
   chronic: {
@@ -402,12 +427,10 @@ export const zh: Translations = {
       waze: "Waze →",
       hoursLabel: "营业时间",
       hoursRows: [
-        { day: "星期一至五", time: "上午 9:00 – 晚上 9:00" },
-        { day: "星期六", time: "上午 9:00 – 傍晚 6:00" },
-        { day: "星期日与公共假期", time: "休息" },
+        { day: "星期一至五", time: "上午 9:00 – 晚上 8:00" },
+        { day: "星期六", time: "上午 9:00 – 傍晚 5:00" },
+        { day: "星期日", time: "上午 9:00 – 下午 1:00" },
       ],
-      hoursNote:
-        "目前 Google Business 列为暂时关闭——请来电确认重新开业日期。",
     },
     map: {
       iframeTitle: "Klinik Ng Poh Huat 蒲种 Bandar Puteri 位置地图",

@@ -46,6 +46,7 @@ content:
             - { value: womens-health, label: Women's Health }
             - { value: specialised, label: Specialised }
             - { value: allergy, label: Allergy }
+            - { value: infectious, label: Infectious Disease & STDs }
 
       - name: order
         label: Display order
@@ -160,3 +161,61 @@ content:
         label: Notes (Chinese)
         type: string
         list: true
+
+  - name: vaccines
+    label: Vaccines
+    type: collection
+    path: src/content/vaccines
+    format: yaml-frontmatter
+    filename: "{fields.slug}.md"
+    view:
+      fields: [name, price, order]
+      sort: [order, name, price]
+      default:
+        sort: order
+        order: asc
+      search: [slug, name, nameZh]
+    fields:
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        description: Filesystem-safe identifier (e.g. "hepatitis-b"). Becomes the filename.
+        pattern:
+          regex: "^[a-z0-9-]+$"
+          message: Use lowercase letters, numbers, and dashes only.
+
+      - name: order
+        label: Display order
+        type: number
+        default: 100
+        description: Lower numbers appear first in the price list.
+
+      - name: name
+        label: Name (English)
+        type: string
+        required: true
+
+      - name: nameZh
+        label: Name (Chinese)
+        type: string
+
+      - name: price
+        label: Price per dose
+        type: number
+        required: true
+        description: Price per single dose, in the chosen currency.
+
+      - name: currency
+        label: Currency
+        type: string
+        default: RM
+
+      - name: note
+        label: Note (English)
+        type: string
+        description: Optional small note shown next to the price (e.g. "Per dose, schedule varies").
+
+      - name: noteZh
+        label: Note (Chinese)
+        type: string

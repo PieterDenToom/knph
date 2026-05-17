@@ -126,6 +126,49 @@ const serviceHrefs = [
     </div>
   </section>
 
+  <section class="section feature-section">
+    <div class="container">
+      <article class="feature-card">
+        <div class="feature-media">
+          <img
+            src="/weight-loss.webp"
+            alt="医学体重管理咨询"
+            width="763"
+            height="763"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div class="feature-body">
+          <span class="eyebrow">{t.home.weightMgmt.eyebrow}</span>
+          <h2>{t.home.weightMgmt.title}</h2>
+          <p>{t.home.weightMgmt.lead}</p>
+          <ul class="feature-points">
+            {
+              t.home.weightMgmt.points.map((p) => (
+                <li>
+                  <Icon name="check" size={16} />
+                  <span>{p}</span>
+                </li>
+              ))
+            }
+          </ul>
+          <div class="feature-cta">
+            <a href="tel:+60321818686" class="btn btn-primary">
+              <Icon name="phone" size={16} /> {t.common.cta.callPhone}
+            </a>
+            <a
+              href="https://wa.me/60321818686"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-ghost">{t.common.cta.whatsappUs}</a
+            >
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <section class="section section--soft">
     <div class="container">
       <div class="section-head">
@@ -520,6 +563,80 @@ const serviceHrefs = [
   .below-grid {
     margin-top: 2.5rem;
     text-align: center;
+  }
+
+  .feature-card {
+    display: grid;
+    grid-template-columns: minmax(220px, 320px) 1fr;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    align-items: center;
+    background: linear-gradient(
+      160deg,
+      var(--purple-50) 0%,
+      #fff 60%
+    );
+    border: 1px solid var(--purple-100);
+    border-radius: 12px;
+    padding: clamp(1.75rem, 4vw, 2.75rem);
+    box-shadow: var(--shadow-md);
+  }
+  .feature-media {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    background: var(--purple-50);
+    box-shadow: var(--shadow-md);
+  }
+  .feature-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .feature-body .eyebrow {
+    color: var(--purple-700);
+  }
+  .feature-body h2 {
+    margin: 0.35rem 0 0.85rem;
+  }
+  .feature-body > p {
+    color: var(--ink-2);
+    margin: 0;
+  }
+  .feature-points {
+    list-style: none;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.65rem;
+  }
+  .feature-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    color: var(--ink-2);
+    font-size: 0.95rem;
+  }
+  .feature-points li :global(svg) {
+    color: var(--purple-600);
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  .feature-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+  @media (max-width: 640px) {
+    .feature-card {
+      grid-template-columns: 1fr;
+    }
+    .feature-media {
+      max-width: 280px;
+      margin-inline: auto;
+    }
   }
   .why {
     display: grid;

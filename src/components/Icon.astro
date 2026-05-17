@@ -18,11 +18,16 @@ interface Props {
 }
 const { name, size = 22 } = Astro.props;
 
+const filled: Partial<Record<Props["name"], { d: string; viewBox: string }>> = {
+  syringe: {
+    d: "M156-513q-11-12-11-28.5t11-28.5l112-112-43-43-12 12q-12 12-28.5 12T156-713q-11-11-11-28t11-28l80-80q12-12 28.5-12t28.5 12q11 11 11 28t-11 28l-12 12 43 43 112-112q12-12 28.5-12t28.5 12q12 12 12 28.5T493-793l-27 26 295 295q23 23 23 56.5T761-359l-28 29 189 188H808L676-274l-28 29q-23 23-56.5 23T535-245L240-540l-27 27q-12 11-28.5 11T156-513Zm140-83 295 295 113-114-60-61-56 56q-12 11-28.5 11.5T532-419q-12-12-12-28.5t12-28.5l56-56-60-60-56 56q-12 11-28.5 11T415-536q-11-12-11-28.5t11-28.5l56-56-61-61-114 114Zm0 0 114-114-114 114Z",
+    viewBox: "0 -960 960 960",
+  },
+};
+
 const paths: Record<string, string> = {
   stethoscope:
     'M6 3v6a5 5 0 0 0 10 0V3M9 3h-3M16 3h-3M11 14v3a4 4 0 0 0 8 0v-1M19 13a2 2 0 1 1 0 4 2 2 0 0 1 0-4z',
-  syringe:
-    'M14 4l6 6M17 7l3-3M11 7l6 6M9 9l8 8M3 21l3-3M6 18l-2 2-1-1 2-2M6 18l4-4 4 4-4 4z',
   heart:
     'M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z',
   shield: 'M12 3l8 3v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V6l8-3z',
@@ -40,20 +45,36 @@ const paths: Record<string, string> = {
     'M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM3 20v-2a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v2M13 20v-2a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v2',
 };
 
+const filledIcon = filled[name];
 const d = paths[name] || paths.heart;
 ---
 
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  width={size}
-  height={size}
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="currentColor"
-  stroke-width="1.8"
-  stroke-linecap="round"
-  stroke-linejoin="round"
-  aria-hidden="true"
->
-  <path d={d}></path>
-</svg>
+{
+  filledIcon ? (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox={filledIcon.viewBox}
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d={filledIcon.d} />
+    </svg>
+  ) : (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.8"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d={d} />
+    </svg>
+  )
+}

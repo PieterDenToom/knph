@@ -73,7 +73,7 @@ export const en = {
         walkins: "Walk-ins welcome",
       },
       cards: {
-        consult: { title: "General consult", sub: "Mon – Sat" },
+        consult: { title: "General consult", sub: "Open 7 days" },
         vacc: { title: "Vaccinations", sub: "Adults & children" },
         chronic: { title: "Chronic care", sub: "Diabetes · BP · Cholesterol" },
       },
@@ -84,6 +84,16 @@ export const en = {
       title: "Health screening, made simple and affordable",
       lead: "Browse our full lineup of screening packages and specialised lab tests. Swipe to explore — every option includes sample collection and an easy-to-read report.",
       cta: "Open the full packages page",
+    },
+    weightMgmt: {
+      eyebrow: "By consultation",
+      title: "Medical weight management",
+      lead: "For eligible patients, our doctors offer structured weight management with prescription injectables, alongside nutrition and lifestyle guidance. Every plan starts with a full consultation and continues with regular monitoring.",
+      points: [
+        "Medical assessment and eligibility review before any prescription",
+        "Ongoing monitoring of weight, side effects and metabolic markers",
+        "Paired with practical nutrition and activity guidance",
+      ],
     },
     services: {
       eyebrow: "What we do",
@@ -106,9 +116,9 @@ export const en = {
             "Adult, paediatric and travel vaccinations including influenza, HPV, hepatitis and more.",
         },
         {
-          title: "Chronic Disease Care",
+          title: "Chronic Disease & Heart Care",
           description:
-            "Ongoing management for diabetes, hypertension, cholesterol and asthma.",
+            "Ongoing management for diabetes, hypertension, cholesterol and asthma — with deep expertise in cardiology and cardiovascular risk.",
         },
       ],
     },
@@ -117,14 +127,14 @@ export const en = {
       title: "A clinic that listens before it prescribes.",
       lead: "We believe great primary care starts with taking the time to understand you — your habits, your history and what matters most. At Klinik Ng Poh Huat you'll find an unhurried consult, plain-language explanations and a doctor you can keep coming back to.",
       points: [
+        "Extensive cardiology expertise — heart-health checks and long-term cardiovascular care",
         "Unhurried consults — no rushing through your visit",
-        "Transparent pricing on screening packages",
         "Convenient location in Bandar Puteri Puchong",
         "WhatsApp follow-ups for chronic care patients",
       ],
       stats: [
         { num: "15+", label: "Years of family medicine experience" },
-        { num: "6 days", label: "A week, including Saturdays" },
+        { num: "7 days", label: "A week, including weekends" },
         { num: "All ages", label: "From toddlers to grandparents" },
       ],
     },
@@ -169,16 +179,20 @@ export const en = {
         description: "Chronic care is a journey — we'll walk it with you.",
       },
     ],
+    gallery: {
+      eyebrow: "Inside the clinic",
+      title: "A look around our space",
+      lead: "A glimpse of the clinic interior and the team you'll meet when you visit.",
+    },
     hours: {
       eyebrow: "Clinic Hours",
       title: "When you can visit us",
       lead: "We welcome walk-ins, but a quick WhatsApp ahead of time helps us serve you faster.",
       rows: [
-        { day: "Monday – Friday", time: "9:00 AM – 9:00 PM" },
-        { day: "Saturday", time: "9:00 AM – 6:00 PM" },
-        { day: "Sunday & Public Holidays", time: "Closed" },
+        { day: "Monday – Friday", time: "9:00 AM – 8:00 PM" },
+        { day: "Saturday", time: "9:00 AM – 5:00 PM" },
+        { day: "Sunday", time: "9:00 AM – 1:00 PM" },
       ],
-      note: "Hours subject to change once we officially reopen — please call ahead to confirm.",
     },
   },
   screening: {
@@ -208,6 +222,11 @@ export const en = {
         label: "Allergy & Food Intolerance",
         description:
           "IgE allergy panels and IgG food intolerance screens — separately or as bundled combos.",
+      },
+      infectious: {
+        label: "Infectious Disease & STDs",
+        description:
+          "Discreet, confidential screening for sexually transmitted infections and common infectious diseases — including hepatitis, syphilis, HIV and chlamydia/gonorrhoea panels.",
       },
     },
     jumpNav: "Jump to section",
@@ -261,7 +280,6 @@ export const en = {
         title: "Paediatric & childhood",
         items: [
           "Routine childhood schedule (MOH-aligned)",
-          "MMR (Measles, Mumps, Rubella)",
           "Chickenpox (Varicella)",
           "Hepatitis A / B booster",
           "HPV (from age 9)",
@@ -305,6 +323,13 @@ export const en = {
     cta: {
       title: "Need a quick recommendation?",
       lead: "Tell us your age, travel plans or your child's vaccination history — we'll put together a clear schedule for you.",
+    },
+    pricing: {
+      eyebrow: "Pricing",
+      title: "Per-dose vaccine pricing",
+      lead: "Transparent single-dose prices. Multi-dose vaccines are charged per visit; please call ahead to confirm stock and your schedule.",
+      vaccineHeader: "Vaccine",
+      priceHeader: "Price",
     },
   },
   chronic: {
@@ -397,12 +422,10 @@ export const en = {
       waze: "Waze →",
       hoursLabel: "Hours",
       hoursRows: [
-        { day: "Mon – Fri", time: "9:00 AM – 9:00 PM" },
-        { day: "Saturday", time: "9:00 AM – 6:00 PM" },
-        { day: "Sunday & PH", time: "Closed" },
+        { day: "Mon – Fri", time: "9:00 AM – 8:00 PM" },
+        { day: "Saturday", time: "9:00 AM – 5:00 PM" },
+        { day: "Sunday", time: "9:00 AM – 1:00 PM" },
       ],
-      hoursNote:
-        "Currently listed as temporarily closed — please call ahead to confirm reopening.",
     },
     map: {
       iframeTitle:

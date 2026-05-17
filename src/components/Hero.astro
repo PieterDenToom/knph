@@ -23,6 +23,7 @@ const t = useTranslations(lang);
         <a
           href={localizedHref("/health-screening", lang)}
           class="btn btn-primary"
+          id="hero-cta-screening"
         >
           {t.home.hero.ctaPrimary}
           <svg
@@ -39,7 +40,7 @@ const t = useTranslations(lang);
             <path d="M5 12h14M13 5l7 7-7 7"></path>
           </svg>
         </a>
-        <a href={localizedHref("/contact", lang)} class="btn btn-ghost"
+        <a href={localizedHref("/contact", lang)} class="btn btn-ghost" id="hero-cta-contact"
           >{t.home.hero.ctaSecondary}</a
         >
       </div>
@@ -280,3 +281,12 @@ const t = useTranslations(lang);
     }
   }
 </style>
+
+<script is:inline>
+  document.getElementById('hero-cta-screening')?.addEventListener('click', function () {
+    window.posthog?.capture('health_screening_cta_clicked', { location: 'hero' });
+  });
+  document.getElementById('hero-cta-contact')?.addEventListener('click', function () {
+    window.posthog?.capture('contact_cta_clicked', { location: 'hero' });
+  });
+</script>

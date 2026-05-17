@@ -17,7 +17,7 @@ const label =
 const ariaLabel = `${t.common.languageSwitcher.label}: ${label}`;
 ---
 
-<a class="lang-switch" href={targetHref} hreflang={targetLang} aria-label={ariaLabel}>
+<a class="lang-switch" href={targetHref} hreflang={targetLang} aria-label={ariaLabel} data-from-lang={lang} data-to-lang={targetLang}>
   {label}
 </a>
 
@@ -44,3 +44,13 @@ const ariaLabel = `${t.common.languageSwitcher.label}: ${label}`;
     color: var(--purple-800);
   }
 </style>
+
+<script is:inline>
+  document.querySelector('.lang-switch')?.addEventListener('click', function (e) {
+    var el = e.currentTarget;
+    window.posthog?.capture('language_switched', {
+      from_language: el.dataset.fromLang,
+      to_language: el.dataset.toLang,
+    });
+  });
+</script>

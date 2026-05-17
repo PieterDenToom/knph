@@ -7,7 +7,13 @@ const offers = defineCollection({
     code: z.string(),
     name: z.string(),
     nameZh: z.string().optional(),
-    category: z.enum(["screening", "womens-health", "specialised", "allergy"]),
+    category: z.enum([
+      "screening",
+      "womens-health",
+      "specialised",
+      "allergy",
+      "infectious",
+    ]),
     tagline: z.string(),
     taglineZh: z.string().optional(),
     description: z.string().optional(),
@@ -38,4 +44,18 @@ const offers = defineCollection({
   }),
 });
 
-export const collections = { offers };
+const vaccines = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/vaccines" }),
+  schema: z.object({
+    slug: z.string(),
+    name: z.string(),
+    nameZh: z.string().optional(),
+    price: z.number(),
+    currency: z.string().default("RM"),
+    note: z.string().optional(),
+    noteZh: z.string().optional(),
+    order: z.number().default(100),
+  }),
+});
+
+export const collections = { offers, vaccines };

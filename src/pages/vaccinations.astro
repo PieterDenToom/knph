@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/PageHero.astro";
 import Icon from "../components/Icon.astro";
@@ -8,6 +9,11 @@ const lang: Locale = "en";
 const t = useTranslations(lang);
 
 const groupIcons = ["shield", "family", "map"] as const;
+
+const vaccines = await getCollection("vaccines");
+const sortedVaccines = [...vaccines].sort(
+  (a, b) => a.data.order - b.data.order,
+);
 ---
 
 <Layout
@@ -59,7 +65,45 @@ const groupIcons = ["shield", "family", "map"] as const;
     </div>
   </section>
 
-  <section class="section section--soft">
+  <section class="section section--soft" id="vaccination-pricing-section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">{t.vaccinations.pricing.eyebrow}</span>
+        <h2>{t.vaccinations.pricing.title}</h2>
+        <p>{t.vaccinations.pricing.lead}</p>
+      </div>
+      <div class="price-table-wrap">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th scope="col">{t.vaccinations.pricing.vaccineHeader}</th>
+              <th scope="col" class="num">
+                {t.vaccinations.pricing.priceHeader}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              sortedVaccines.map((v) => (
+                <tr>
+                  <td>
+                    <span class="vname">{v.data.name}</span>
+                    {v.data.note && <span class="vnote">{v.data.note}</span>}
+                  </td>
+                  <td class="num">
+                    <span class="cur">{v.data.currency}</span>
+                    {v.data.price}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="container info-grid">
       <div>
         <span class="eyebrow">{t.vaccinations.info.eyebrow}</span>
@@ -79,20 +123,43 @@ const groupIcons = ["shield", "family", "map"] as const;
         <h3>{t.vaccinations.cta.title}</h3>
         <p>{t.vaccinations.cta.lead}</p>
         <div class="buttons">
-          <a href="tel:+60321818686" class="btn btn-primary">
+          <a href="tel:+60321818686" class="btn btn-primary" id="vacc-phone-cta">
             <Icon name="phone" size={16} /> {t.common.cta.callPhone}
           </a>
           <a
             href="https://wa.me/60321818686"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-ghost">{t.common.cta.whatsapp}</a
+            class="btn btn-ghost"
+            id="vacc-whatsapp-cta">{t.common.cta.whatsapp}</a
           >
         </div>
       </aside>
     </div>
   </section>
 </Layout>
+
+<script is:inline>
+  var pricingSection = document.getElementById('vaccination-pricing-section');
+  if (pricingSection) {
+    var pricingObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          window.posthog?.capture('vaccination_pricing_viewed');
+          pricingObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    pricingObserver.observe(pricingSection);
+  }
+
+  document.getElementById('vacc-phone-cta')?.addEventListener('click', function () {
+    window.posthog?.capture('phone_cta_clicked', { location: 'vaccinations_page' });
+  });
+  document.getElementById('vacc-whatsapp-cta')?.addEventListener('click', function () {
+    window.posthog?.capture('whatsapp_cta_clicked', { location: 'vaccinations_page' });
+  });
+</script>
 
 <style>
   .vgroup {
@@ -143,6 +210,70 @@ const groupIcons = ["shield", "family", "map"] as const;
     color: var(--purple-600);
     flex-shrink: 0;
     margin-top: 4px;
+  }
+
+  .price-table-wrap {
+    margin-top: 2rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+  .price-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+  }
+  .price-table thead th {
+    background: var(--purple-50);
+    color: var(--purple-800);
+    font-family: "Manrope", sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.9rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid var(--purple-100);
+  }
+  .price-table th.num,
+  .price-table td.num {
+    text-align: right;
+  }
+  .price-table tbody tr + tr td {
+    border-top: 1px solid var(--line);
+  }
+  .price-table td {
+    padding: 1rem 1.5rem;
+    vertical-align: middle;
+  }
+  .price-table .vname {
+    display: block;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .price-table .vnote {
+    display: block;
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 0.15rem;
+  }
+  .price-table .cur {
+    color: var(--muted);
+    font-weight: 500;
+    margin-right: 0.35rem;
+    font-size: 0.9em;
+  }
+  .price-table td.num {
+    font-weight: 700;
+    color: var(--purple-800);
+  }
+  @media (max-width: 520px) {
+    .price-table thead th,
+    .price-table td {
+      padding: 0.85rem 1rem;
+    }
   }
 
   .info-grid {
