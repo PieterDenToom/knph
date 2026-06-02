@@ -64,7 +64,7 @@ export const en = {
     hero: {
       eyebrow: "Family GP · Bandar Puteri Puchong",
       title: "Everyday healthcare, delivered with warmth and care.",
-      lead: "From routine check-ups to health screening and chronic disease care, Klinik Ng Poh Huat is a community clinic you can rely on — open soon at Bandar Puteri.",
+      lead: "From routine check-ups to health screening and chronic disease care, Klinik Ng Poh Huat is a community clinic you can rely on at Bandar Puteri.",
       ctaPrimary: "See Health Packages",
       ctaSecondary: "Contact the Clinic",
       trust: {

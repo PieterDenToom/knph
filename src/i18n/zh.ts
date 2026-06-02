@@ -66,7 +66,7 @@ export const zh: Translations = {
     hero: {
       eyebrow: "家庭全科医生 · Bandar Puteri 蒲种",
       title: "用心倾听、专业照护,守护您与家人的每一天。",
-      lead: "从日常体检、健康检查到慢性病管理,Klinik Ng Poh Huat 是一所您可以长期信赖的社区诊所——即将于 Bandar Puteri 蒲种开业。",
+      lead: "从日常体检、健康检查到慢性病管理,Klinik Ng Poh Huat 是一所您可以长期信赖的社区诊所,位于 Bandar Puteri 蒲种。",
       ctaPrimary: "查看健康检查配套",
       ctaSecondary: "联系诊所",
       trust: {
