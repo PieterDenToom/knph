@@ -54,4 +54,5 @@ addOn:
     - CA 15-3 (Breast Tumour Marker)
     - CA 19-9 (Pancreatic/GI Tumour Marker)
     - EBV VCA IgA (Nasopharyngeal Tumour Marker)
+sample: Blood draw with urine sample. Fasting required.
 ---
