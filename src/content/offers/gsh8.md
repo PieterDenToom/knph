@@ -35,23 +35,23 @@ addOn:
   label: Pick any 8 add-ons
   items:
     - Urine MicroAlbumin/Creatinine
-    - Iron Status panel
+    - "Iron Status panel: Transferrin, TIBC, Iron Saturation"
     - Apo-B & Apo-A
     - Homocysteine
     - TSH
     - Free T4 (FT4)
     - Free T3 (FT3)
-    - HBs Ag & HBs Ab (Hepatitis B)
+    - "Hepatitis B Screening: HBs Ag & HBs Ab "
     - HIV 1 & 2 (Ag & Ab)
     - Anti-HAV (Hepatitis A)
     - RPR (reflex TPAb)
     - ABO blood group
     - H. pylori IgG
-    - AFP (tumour marker)
-    - CEA (tumour marker)
-    - PSA (prostate)
-    - CA 125 (ovarian)
-    - CA 15-3 (breast)
-    - CA 19-9 (pancreatic/GI)
-    - EBV VCA IgA
+    - AFP (Liver Tumour Marker)
+    - CEA (Colorectal Tumour Marker)
+    - PSA (Prostate Tumour Marker)
+    - CA 125 (Ovarian Tumour Marker)
+    - CA 15-3 (Breast Tumour Marker)
+    - CA 19-9 (Pancreatic/GI Tumour Marker)
+    - EBV VCA IgA (Nasopharyngeal Tumour Marker)
 ---
