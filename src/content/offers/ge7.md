@@ -3,7 +3,7 @@ code: GE7
 category: screening
 order: 1
 name: Vitality Health Screening
-nameZh: 维生素 D + 基础健康检查 (GE7)
+nameZh: "维生素 D + 基础健康检查 "
 tagline: Essential annual screening with Vitamin D included.
 taglineZh: 涵盖维生素 D 的年度基础健康检查。
 description: A well-rounded baseline check that covers blood, liver, kidneys,
