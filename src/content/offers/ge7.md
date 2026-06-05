@@ -15,17 +15,16 @@ price:
 currency: RM
 features:
   - Full Blood Count
+  - Renal Profile
   - Liver Function Test
-  - Lipid Studies
-  - Renal Function Test
-  - Calcium
-  - Phosphate
+  - Fasting Lipid Profile
+  - Fasting Blood Sugar
+  - Glycated Hb (HbA1c)
+  - Uric Acid
+  - Calcium, Magnesium, Phosphate
   - Vitamin D Total
   - High-Sensitive CRP
-  - Magnesium
-  - Fasting Blood Sugar
-  - HbA1C
-  - Urine FEME
+  - Urine Full Examination and Microscopy
   - General Physical Examination
   - Blood Pressure Check
 sample: Blood draw + urine sample. Fasting required.
