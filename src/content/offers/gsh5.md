@@ -2,15 +2,15 @@
 code: GE7
 category: screening
 order: 2
-name: Customised Screen (GSH5)
-nameZh: 自选健康检查配套 (GSH5)
+name: "Personalised Health Screening "
+nameZh: "自选健康检查配套 "
 tagline: Core essentials plus any 5 add-ons of your choice.
 taglineZh: 基础核心配套加上任选 5 项加配检验。
 description: Builds on a strong core panel and lets you add 5 tests tailored to
   your concerns — from hormones and thyroid to cancer markers and infections.
 descriptionZh: 在扎实的核心配套之上,让您任选 5 项加配检验——从荷尔蒙、甲状腺到肿瘤标志与感染指标。
 price:
-  promo: 152
+  promo: 160
   normal: 170
 currency: RM
 features:
