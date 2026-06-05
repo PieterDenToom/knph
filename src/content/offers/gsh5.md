@@ -27,7 +27,7 @@ features:
   - Glycated Hb (HbA1C)
   - Magnesium
   - High-Sensitive CRP
-  - Urine Full Examination and Microscopy
+  - "Urine Full Examination and Microscopy "
 addOn:
   selectCount: 5
   label: Pick any 5 add-ons
