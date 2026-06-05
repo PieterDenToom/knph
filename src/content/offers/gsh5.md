@@ -14,6 +14,8 @@ price:
   normal: 170
 currency: RM
 features:
+  - General Physical Examination
+  - Blood Pressure Check
   - Full Blood Count
   - Liver Function Test
   - Lipid Studies
