@@ -17,17 +17,17 @@ features:
   - General Physical Examination
   - Blood Pressure Check
   - Full Blood Count
+  - Serum Iron (complimentary)
   - Liver Function Test
   - Lipid Studies
   - Renal Function Test
   - Calcium
   - Phosphate
   - Fasting Blood Sugar
-  - HbA1C
+  - Glycated Hb (HbA1C)
   - Magnesium
   - High-Sensitive CRP
-  - Serum Iron (complimentary)
-  - Urine FEME
+  - Urine Full Examination and Microscopy
 addOn:
   selectCount: 5
   label: Pick any 5 add-ons
