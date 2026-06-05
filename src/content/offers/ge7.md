@@ -26,6 +26,8 @@ features:
   - Fasting Blood Sugar
   - HbA1C
   - Urine FEME
+  - General Physical Examination
+  - Blood Pressure Check
 sample: Blood draw + urine sample. Fasting required.
 sampleZh: 抽血 + 尿液样本,需空腹。
 ---
