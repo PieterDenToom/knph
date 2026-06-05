@@ -14,6 +14,8 @@ price:
   normal: 138
 currency: RM
 features:
+  - General Physical Examination
+  - Blood Pressure Check
   - Full Blood Count
   - Renal Profile
   - Liver Function Test
@@ -25,8 +27,6 @@ features:
   - Vitamin D Total
   - High-Sensitive CRP
   - Urine Full Examination and Microscopy
-  - General Physical Examination
-  - Blood Pressure Check
 sample: Blood draw + urine sample. Fasting required.
 sampleZh: 抽血 + 尿液样本,需空腹。
 ---
