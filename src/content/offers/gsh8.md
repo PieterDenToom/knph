@@ -17,19 +17,19 @@ price:
   normal: 232
 currency: RM
 features:
+  - General Physical Examination
+  - Blood Pressure Check
   - Full Blood Count
-  - Liver Function Test
-  - Lipid Studies
-  - Renal Function Test
-  - Calcium
-  - Phosphate
-  - Fasting Blood Sugar
-  - HbA1C
-  - Magnesium
-  - High-Sensitive CRP
-  - Rheumatoid Factor (complimentary)
   - Serum Iron (complimentary)
-  - Urine FEME
+  - Rheumatoid Factor (complimentary)
+  - Renal Function Test
+  - Liver Function Test
+  - Calcium, Magnesium, Phosphate
+  - Fasting Lipid Profile
+  - Fasting Blood Sugar
+  - Glycated Hb (HbA1c)
+  - High-Sensitive CRP
+  - Urine Full Examination and Microscopy
 addOn:
   selectCount: 8
   label: Pick any 8 add-ons
