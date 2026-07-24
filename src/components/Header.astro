@@ -2,10 +2,18 @@
 import Logo from "./Logo.astro";
 import LanguageSwitcher from "./LanguageSwitcher.astro";
 import Icon from "./Icon.astro";
+import SearchModal from "./SearchModal.astro";
 import { useTranslations, localizedHref, type Locale } from "../i18n";
 
 interface Props {
-  active?: "home" | "about" | "screening" | "vaccinations" | "chronic" | "contact";
+  active?:
+    | "home"
+    | "about"
+    | "screening"
+    | "vaccinations"
+    | "chronic"
+    | "weight"
+    | "contact";
   lang?: Locale;
 }
 const { active = "home", lang = "en" } = Astro.props;
@@ -17,6 +25,7 @@ const links = [
   { href: "/health-screening", label: t.common.nav.screening, id: "screening" },
   { href: "/vaccinations", label: t.common.nav.vaccinations, id: "vaccinations" },
   { href: "/chronic-disease", label: t.common.nav.chronic, id: "chronic" },
+  { href: "/weight-management", label: t.common.nav.weightManagement, id: "weight" },
   { href: "/contact", label: t.common.nav.contact, id: "contact" },
 ];
 ---
@@ -51,16 +60,15 @@ const links = [
     </nav>
 
     <div class="utility">
+      <SearchModal lang={lang} />
       <LanguageSwitcher lang={lang} />
       <a
         href="tel:+60321818686"
         class="btn btn-primary nav-cta"
         aria-label={t.common.nav.callCta}
       >
-        <span class="cta-text">{t.common.nav.callCta}</span>
-        <span class="cta-icon" aria-hidden="true">
-          <Icon name="phone" size={18} />
-        </span>
+        <Icon name="phone" size={16} />
+        <span class="cta-text">{t.common.cta.callShort}</span>
       </a>
       <label for="nav-toggle" class="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -82,7 +90,7 @@ const links = [
   .row {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.6rem;
     padding-top: 0.9rem;
     padding-bottom: 0.9rem;
   }
@@ -96,16 +104,16 @@ const links = [
     list-style: none;
     display: flex;
     align-items: center;
-    gap: 0.15rem;
+    gap: 0.1rem;
     margin: 0;
     padding: 0;
     flex-wrap: nowrap;
   }
   .nav-link {
     display: inline-block;
-    padding: 0.5rem 0.75rem;
+    padding: 0.45rem 0.55rem;
     border-radius: 6px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
     color: var(--ink-2);
     white-space: nowrap;
@@ -126,13 +134,13 @@ const links = [
     flex-shrink: 0;
   }
   .nav-cta {
-    padding: 0.6rem 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 0.85rem;
     font-size: 0.85rem;
     line-height: 1;
-  }
-  .nav-cta .cta-icon {
-    display: none;
-    line-height: 0;
+    white-space: nowrap;
   }
 
   .nav-toggle {
@@ -158,37 +166,23 @@ const links = [
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
 
-  /* Narrower desktop — tighten nav padding */
-  @media (max-width: 1100px) {
-    .nav-link {
-      padding: 0.45rem 0.55rem;
-      font-size: 0.85rem;
-    }
-    .row {
-      gap: 0.6rem;
-    }
-  }
-
-  /* Tablet — swap CTA text for icon to free up nav space */
-  @media (max-width: 1000px) {
+  /* Small phones — CTA drops to icon-only to leave room for search/lang/hamburger */
+  @media (max-width: 420px) {
     .nav-cta {
       width: 40px;
       height: 40px;
       padding: 0;
+      justify-content: center;
       border-radius: 6px;
-      box-shadow: 0 4px 12px rgba(91, 33, 182, 0.25);
     }
     .nav-cta .cta-text {
       display: none;
     }
-    .nav-cta .cta-icon {
-      display: inline-flex;
-      color: #fff;
-    }
   }
 
-  /* Mobile — collapse nav links into hamburger drawer */
-  @media (max-width: 860px) {
+  /* Below this, the full nav-list no longer reliably fits next to the logo
+     and utility cluster — collapse into the hamburger drawer instead. */
+  @media (max-width: 1140px) {
     .hamburger {
       display: inline-flex;
     }

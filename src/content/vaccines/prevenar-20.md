@@ -1,7 +1,7 @@
 ---
 slug: prevenar-20
-order: 100
-name: Prevenar 20
-price: 0
-currency: RM 270
+name: "Prevenar 20"
+nameZh: "Prevenar 20 肺炎球菌疫苗"
+price: 270
+order: 105
 ---

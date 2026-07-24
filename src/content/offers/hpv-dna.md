@@ -8,10 +8,9 @@ taglineZh: "检测 19 种高风险与 9 种低风险 HPV 型别——子宫颈�
 description: "Persistent high-risk HPV infection is the necessary cause of cervical cancer. This test screens for 28 HPV types, including the high-risk 16 and 18 which drive most cervical cancers."
 descriptionZh: "持续性高风险 HPV 感染是子宫颈癌的必要成因。此检验筛查 28 种 HPV 型别,包括引致绝大多数子宫颈癌的 16 与 18 型。"
 price:
-  promo: 180
+  promo: 220
   normal: 240
   tagOn: 166
-validUntil: 2026-06-30
 features:
   - Detects 19 high-risk HPV types (16, 18, 31, 33, 45, 52, 58, etc.)
   - Detects 9 low-risk types (incl. 6, 11 — common in genital warts)

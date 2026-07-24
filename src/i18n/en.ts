@@ -14,6 +14,7 @@ export const en = {
       screening: "Health Screening",
       vaccinations: "Vaccinations",
       chronic: "Chronic Care",
+      weightManagement: "Weight Management",
       contact: "Contact",
       callCta: "Call +60 3-2181 8686",
     },
@@ -21,6 +22,18 @@ export const en = {
       label: "Language",
       switchToZh: "中文",
       switchToEn: "EN",
+    },
+    search: {
+      openLabel: "Search",
+      inputLabel: "Search the site",
+      placeholder: "Search tests, vaccines, pages…",
+      shortcutHint: "⌘K",
+      noResults: "No results found. Try a different word, or call us at +60 3-2181 8686.",
+      resultsHint: "↑↓ to navigate · Enter to open · Esc to close",
+      groupScreening: "Health Screening & Tests",
+      groupVaccinations: "Vaccinations",
+      groupPages: "Pages",
+      close: "Close search",
     },
     carousel: {
       prev: "Previous package",
@@ -56,6 +69,7 @@ export const en = {
         screening: "Health Screening",
         vaccinations: "Vaccinations",
         chronic: "Chronic Disease Care",
+        weightManagement: "Weight Management",
         about: "About the Clinic",
       },
     },
@@ -94,6 +108,7 @@ export const en = {
         "Ongoing monitoring of weight, side effects and metabolic markers",
         "Paired with practical nutrition and activity guidance",
       ],
+      learnMore: "Learn more about the program",
     },
     services: {
       eyebrow: "What we do",
@@ -201,6 +216,45 @@ export const en = {
       title: "Lab packages and tests, fairly priced.",
       description:
         "From annual screening panels to specialised single tests — every offer here is part of our current promotion.",
+    },
+    onSite: {
+      eyebrow: "On-Site Testing",
+      title: "On-site blood & urine testing",
+      lead: "Klinik Ng Poh Huat Bandar Puteri Puchong is equipped with in-house blood and urine analysers, so selected test results are available during the same clinic visit — faster results, earlier treatment decisions.",
+      tests: [
+        {
+          title: "Full Blood Count (FBC)",
+          description: "Our haematology analyser measures:",
+          items: [
+            "Haemoglobin and red blood cell parameters",
+            "White blood cell count and differential",
+            "Platelet count",
+          ],
+          note: "An FBC may assist in assessing conditions such as anaemia, infection, inflammation and platelet abnormalities.",
+        },
+        {
+          title: "Urine Analysis",
+          description: "Our urine analyser provides automated screening for parameters including:",
+          items: [
+            "Blood",
+            "Protein",
+            "Glucose",
+            "Ketones",
+            "Leukocytes and nitrite",
+            "Urine pH and specific gravity",
+          ],
+          note: "",
+        },
+      ],
+      why: {
+        title: "Why choose in-house testing?",
+        points: [
+          "Convenient testing within the clinic",
+          "Selected results available in approximately 10–15 minutes",
+          "Results interpreted by a doctor",
+          "Treatment or referral can be arranged promptly when required",
+        ],
+      },
     },
     groups: {
       screening: {
@@ -403,6 +457,127 @@ export const en = {
       title: "Ready to take charge of your condition?",
       lead: "Book a first chronic care review and we'll start building a plan that fits you.",
       contactOptions: "Contact options",
+    },
+  },
+  weightManagement: {
+    hero: {
+      eyebrow: "Medical Weight Management",
+      title: "A medically supervised path to healthier weight.",
+      description:
+        "Structured, doctor-led weight management using prescription medication — paired with nutrition guidance and regular monitoring. Every plan starts with a full consultation, and pricing is discussed and confirmed there.",
+    },
+    eligibility: {
+      eyebrow: "Is this for you?",
+      title: "Who this program is for",
+      lead: "These medications are prescription-only. Your doctor will confirm your eligibility at consultation.",
+      items: [
+        {
+          title: "BMI of 30 or above",
+          description: "Adults with obesity (BMI ≥30 kg/m²).",
+        },
+        {
+          title: "BMI of 27+ with a related condition",
+          description:
+            "Overweight adults (BMI ≥27 kg/m²) with high blood pressure, high cholesterol, prediabetes/diabetes, or sleep apnoea.",
+        },
+        {
+          title: "Ready for lifestyle change",
+          description:
+            "Used together with a reduced-calorie diet and increased physical activity — not a stand-alone fix.",
+        },
+      ],
+    },
+    options: {
+      eyebrow: "Treatment options",
+      title: "Two prescription options, matched to you",
+      lead: "Your doctor will help you choose the option that best fits your health profile, needs and preferences.",
+      items: [
+        {
+          title: "Wegovy® (semaglutide) — weekly injection",
+          description:
+            "A once-weekly subcutaneous injection that reduces appetite, helps you feel full longer, and reduces food cravings.",
+          points: [
+            "Injected under the skin of the abdomen, thigh or upper arm — rotate sites each week",
+            "Inject on the same day each week",
+            "Store unopened pens refrigerated (2–8°C), away from direct sunlight, and never frozen",
+            "A new needle is used for every injection",
+          ],
+        },
+        {
+          title: "Rybelsus® (oral semaglutide) — daily tablet",
+          description:
+            "A once-daily tablet alternative for patients who prefer not to inject. Originally developed for diabetes, it also supports appetite control and weight management.",
+          points: [
+            "Usual starting dose is 3 mg once daily for the first 30 days, then reviewed",
+            "Take first thing in the morning, on an empty stomach, with half a cup or less of plain water",
+            "Wait at least 30 minutes before eating, drinking, or taking other medication",
+            "Tablets are swallowed whole — never split, crushed or chewed",
+          ],
+        },
+      ],
+    },
+    timeline: {
+      eyebrow: "What to expect",
+      title: "Your first weeks on treatment",
+      lead: "Weight loss is gradual and builds over time. Most patients notice a pattern like this:",
+      steps: [
+        {
+          period: "Week 1–2",
+          body: "Appetite starts to reduce; mild nausea may occur as your body adjusts.",
+        },
+        {
+          period: "Week 3–5",
+          body: "You'll likely feel full faster during meals, with fewer cravings and easier portion control.",
+        },
+        {
+          period: "Week 6 onwards",
+          body: "More noticeable weight loss, with improved control over hunger and snacking.",
+        },
+      ],
+    },
+    safety: {
+      eyebrow: "Safety & monitoring",
+      title: "Managed with care, every step",
+      lead: "Side effects are usually mild and ease with time. We monitor you closely, especially in the first few weeks.",
+      columns: [
+        {
+          title: "Common side effects",
+          items: [
+            "Nausea",
+            "Reduced appetite",
+            "Bloating",
+            "Constipation",
+            "Diarrhoea",
+          ],
+        },
+        {
+          title: "Tips to ease nausea",
+          items: [
+            "Eat slowly and stop when comfortably full",
+            "Avoid oily, greasy or heavy meals",
+            "Drink plenty of water",
+            "Eat smaller meals, more frequently",
+          ],
+        },
+        {
+          title: "Contact us right away if",
+          items: [
+            "Severe vomiting or abdominal pain",
+            "Unable to eat or drink",
+            "Signs of dehydration",
+            "Persistent, severe nausea",
+          ],
+        },
+      ],
+      notes: [
+        "Baseline blood tests (blood sugar, kidney function, liver function, cholesterol, and thyroid where indicated) are recommended before starting.",
+        "Not suitable during pregnancy, or for patients with a history of pancreatitis, severe gastric problems, or a personal/family history of medullary thyroid cancer or MEN2 syndrome.",
+        "We review your weight, side effects and progress every 2–4 weeks.",
+      ],
+    },
+    cta: {
+      title: "Ready to find out if this is right for you?",
+      lead: "Book a consultation with our doctor — we'll assess your eligibility, explain your options, and agree on a monitoring plan together.",
     },
   },
   contact: {

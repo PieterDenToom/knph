@@ -1,0 +1,350 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHero from "../components/PageHero.astro";
+import Icon from "../components/Icon.astro";
+import { useTranslations, type Locale } from "../i18n";
+
+const lang: Locale = "en";
+const t = useTranslations(lang);
+---
+
+<Layout
+  lang={lang}
+  title={t.weightManagement.hero.eyebrow}
+  description={t.weightManagement.hero.description}
+  active="weight"
+>
+  <PageHero
+    eyebrow={t.weightManagement.hero.eyebrow}
+    title={t.weightManagement.hero.title}
+    description={t.weightManagement.hero.description}
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">{t.weightManagement.eligibility.eyebrow}</span>
+        <h2>{t.weightManagement.eligibility.title}</h2>
+        <p>{t.weightManagement.eligibility.lead}</p>
+      </div>
+      <div class="grid grid-3">
+        {
+          t.weightManagement.eligibility.items.map((item) => (
+            <article class="elig">
+              <div class="icon-wrap">
+                <Icon name="check" size={22} />
+              </div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">{t.weightManagement.options.eyebrow}</span>
+        <h2>{t.weightManagement.options.title}</h2>
+        <p>{t.weightManagement.options.lead}</p>
+      </div>
+      <div class="grid grid-2 options">
+        {
+          t.weightManagement.options.items.map((opt) => (
+            <article class="option-card">
+              <h3>{opt.title}</h3>
+              <p class="desc">{opt.description}</p>
+              <ul>
+                {opt.points.map((p) => (
+                  <li>
+                    <Icon name="check" size={14} />
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">{t.weightManagement.timeline.eyebrow}</span>
+        <h2>{t.weightManagement.timeline.title}</h2>
+        <p>{t.weightManagement.timeline.lead}</p>
+      </div>
+      <ol class="timeline">
+        {
+          t.weightManagement.timeline.steps.map((step) => (
+            <li>
+              <span class="period">{step.period}</span>
+              <p>{step.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">{t.weightManagement.safety.eyebrow}</span>
+        <h2>{t.weightManagement.safety.title}</h2>
+        <p>{t.weightManagement.safety.lead}</p>
+      </div>
+      <div class="grid grid-3">
+        {
+          t.weightManagement.safety.columns.map((col) => (
+            <div class="safety-col">
+              <h3>{col.title}</h3>
+              <ul>
+                {col.items.map((i) => (
+                  <li>{i}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+      <ul class="notes">
+        {
+          t.weightManagement.safety.notes.map((n) => (
+            <li>{n}</li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-block">
+        <div>
+          <h3>{t.weightManagement.cta.title}</h3>
+          <p>{t.weightManagement.cta.lead}</p>
+        </div>
+        <div class="cta-buttons">
+          <a href="tel:+60321818686" class="btn btn-primary">
+            <Icon name="phone" size={16} /> {t.common.cta.callUs}
+          </a>
+          <a
+            href="https://wa.me/60321818686"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-ghost">{t.common.cta.whatsappUs}</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .elig {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.75rem;
+    height: 100%;
+  }
+  .icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+    background: linear-gradient(135deg, var(--purple-100), var(--surface));
+    color: var(--purple-700);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    border: 1px solid var(--purple-100);
+  }
+  .elig h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+  }
+  .elig p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.93rem;
+  }
+
+  .options {
+    align-items: stretch;
+  }
+  .option-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.75rem;
+    height: 100%;
+  }
+  .option-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+  }
+  .option-card .desc {
+    color: var(--ink-2);
+    font-size: 0.93rem;
+    margin-bottom: 1rem;
+  }
+  .option-card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .option-card ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    font-size: 0.9rem;
+    color: var(--ink-2);
+    line-height: 1.45;
+  }
+  .option-card ul li :global(svg) {
+    color: var(--purple-600);
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    counter-reset: step;
+  }
+  @media (max-width: 700px) {
+    .timeline {
+      grid-template-columns: 1fr;
+    }
+  }
+  .timeline li {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.5rem;
+  }
+  .timeline .period {
+    display: inline-block;
+    font-family: "Manrope", sans-serif;
+    font-weight: 700;
+    color: var(--purple-700);
+    background: var(--purple-100);
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+  }
+  .timeline p {
+    margin: 0;
+    color: var(--ink-2);
+    font-size: 0.93rem;
+  }
+
+  .safety-col {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.5rem 1.75rem;
+    height: 100%;
+  }
+  .safety-col h3 {
+    font-size: 1rem;
+    margin-bottom: 0.85rem;
+  }
+  .safety-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .safety-col li {
+    font-size: 0.9rem;
+    color: var(--ink-2);
+    padding-left: 1rem;
+    position: relative;
+  }
+  .safety-col li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--purple-400, var(--purple-500));
+  }
+
+  .notes {
+    list-style: none;
+    margin: 2rem 0 0;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    display: grid;
+    gap: 0.6rem;
+    font-size: 0.87rem;
+    color: var(--muted);
+  }
+
+  .cta-block {
+    background: linear-gradient(
+      160deg,
+      var(--purple-700) 0%,
+      var(--purple-900) 100%
+    );
+    border-radius: 6px;
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .cta-block h3 {
+    color: #fff;
+    margin: 0 0 0.5rem;
+    font-size: 1.3rem;
+  }
+  .cta-block p {
+    color: rgba(255, 255, 255, 0.82);
+    margin: 0;
+    max-width: 48ch;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .cta-buttons .btn-primary {
+    background: #fff;
+    color: var(--purple-800);
+  }
+  .cta-buttons .btn-primary:hover {
+    background: var(--purple-50);
+  }
+  .cta-buttons .btn-ghost {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+  .cta-buttons .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+</style>

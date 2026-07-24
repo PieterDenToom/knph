@@ -7,7 +7,14 @@ import { useTranslations, type Locale } from "../i18n";
 interface Props {
   title?: string;
   description?: string;
-  active?: "home" | "about" | "screening" | "vaccinations" | "chronic" | "contact";
+  active?:
+    | "home"
+    | "about"
+    | "screening"
+    | "vaccinations"
+    | "chronic"
+    | "weight"
+    | "contact";
   lang?: Locale;
 }
 

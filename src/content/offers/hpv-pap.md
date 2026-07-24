@@ -8,9 +8,7 @@ taglineZh: "一次取样同步进行 HPV DNA 分型与子宫颈细胞学检验�
 description: "The most thorough cervical screening option — pairs HPV genotyping with a liquid-based Pap smear so you get both an infection picture and a cellular picture from a single cervical brush."
 descriptionZh: "最完整的子宫颈筛查方案——结合 HPV 基因分型与液基 Pap 涂片,从单次取样同时获得感染与细胞层面的完整图像。"
 price:
-  promo: 230
-  normal: 280
-validUntil: 2026-06-30
+  promo: 280
 features:
   - 19 high-risk + 9 low-risk HPV genotypes
   - Liquid-based cervical cytology

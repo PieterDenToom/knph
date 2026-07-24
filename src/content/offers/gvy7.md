@@ -8,9 +8,8 @@ taglineZh: "我们旗舰级的全身、全方位活力健康检查。"
 description: "A robust, in-depth screening built for executives and anyone serious about their long-term health — covering metabolic, cardiac, antioxidant and vitamin status, plus 7 personalised add-ons."
 descriptionZh: "为重视长期健康的行政人员及高需求人士打造的深入检查——涵盖代谢、心血管、抗氧化与维生素状态,另含任选 7 项个人化加配。"
 price:
-  promo: 556
+  promo: 560
   normal: 720
-validUntil: 2026-06-30
 features:
   - Full Blood Count
   - Iron Status (Iron, Transferrin, TIBC)

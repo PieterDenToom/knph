@@ -69,6 +69,50 @@ const groups = [
     description={t.screening.hero.description}
   />
 
+  <section class="section on-site">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">{t.screening.onSite.eyebrow}</span>
+        <h2>{t.screening.onSite.title}</h2>
+        <p>{t.screening.onSite.lead}</p>
+      </div>
+
+      <div class="grid grid-2 on-site-tests">
+        {
+          t.screening.onSite.tests.map((test) => (
+            <article class="on-site-card">
+              <h3>{test.title}</h3>
+              <p class="desc">{test.description}</p>
+              <ul>
+                {test.items.map((i) => (
+                  <li>
+                    <Icon name="check" size={14} />
+                    <span>{i}</span>
+                  </li>
+                ))}
+              </ul>
+              {test.note && <p class="note">{test.note}</p>}
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="on-site-why">
+        <h3>{t.screening.onSite.why.title}</h3>
+        <div class="grid grid-4">
+          {
+            t.screening.onSite.why.points.map((p) => (
+              <div class="why-point">
+                <Icon name="check" size={16} />
+                <span>{p}</span>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="jump-nav-wrap">
     <div class="container">
       <nav class="jump-nav" aria-label={t.screening.jumpNav}>
@@ -161,6 +205,81 @@ const groups = [
 </Layout>
 
 <style>
+  .on-site {
+    padding-top: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .on-site-tests {
+    margin-bottom: 2rem;
+  }
+  .on-site-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.75rem;
+    height: 100%;
+  }
+  .on-site-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+  .on-site-card .desc {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.85rem;
+  }
+  .on-site-card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .on-site-card ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    font-size: 0.9rem;
+    color: var(--ink-2);
+    line-height: 1.45;
+  }
+  .on-site-card ul li svg {
+    color: var(--purple-600);
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .on-site-card .note {
+    margin: 1rem 0 0;
+    padding-top: 0.85rem;
+    border-top: 1px dashed var(--line);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  .on-site-why {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.75rem;
+  }
+  .on-site-why h3 {
+    font-size: 1.05rem;
+    text-align: center;
+    margin-bottom: 1.25rem;
+  }
+  .why-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    font-size: 0.9rem;
+    color: var(--ink-2);
+  }
+  .why-point svg {
+    color: var(--purple-600);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
   .jump-nav-wrap {
     position: sticky;
     top: 64px;

@@ -13,7 +13,9 @@ interface Props {
     | "check"
     | "arrow"
     | "star"
-    | "family";
+    | "family"
+    | "search"
+    | "close";
   size?: number;
 }
 const { name, size = 22 } = Astro.props;
@@ -43,6 +45,8 @@ const paths: Record<string, string> = {
   star: 'M12 3l2.9 6 6.6 1-4.8 4.6 1.2 6.6L12 18l-5.9 3.2L7.3 14.6 2.5 10l6.6-1z',
   family:
     'M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM16 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM3 20v-2a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v2M13 20v-2a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v2',
+  search: 'M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM21 21l-4.35-4.35',
+  close: 'M6 6l12 12M18 6L6 18',
 };
 
 const filledIcon = filled[name];
