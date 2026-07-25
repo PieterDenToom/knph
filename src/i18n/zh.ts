@@ -498,7 +498,7 @@ export const zh: Translations = {
       lead: "医生将协助您根据自身健康状况、需求与偏好,选择最合适的方案。",
       items: [
         {
-          title: "Wegovy®(semaglutide)——每周注射",
+          title: "注射方案——每周注射",
           description:
             "每周一次的皮下注射,有助降低食欲、延长饱腹感并减少食物渴望。",
           points: [
@@ -509,7 +509,7 @@ export const zh: Translations = {
           ],
         },
         {
-          title: "Rybelsus®(口服 semaglutide)——每日一片",
+          title: "口服方案——每日一片",
           description:
             "适合不愿注射患者的每日口服替代方案。原用于糖尿病治疗,亦有助于控制食欲与体重管理。",
           points: [

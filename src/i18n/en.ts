@@ -493,7 +493,7 @@ export const en = {
       lead: "Your doctor will help you choose the option that best fits your health profile, needs and preferences.",
       items: [
         {
-          title: "Wegovy® (semaglutide) — weekly injection",
+          title: "Injection option — weekly injection",
           description:
             "A once-weekly subcutaneous injection that reduces appetite, helps you feel full longer, and reduces food cravings.",
           points: [
@@ -504,7 +504,7 @@ export const en = {
           ],
         },
         {
-          title: "Rybelsus® (oral semaglutide) — daily tablet",
+          title: "Oral option — daily tablet",
           description:
             "A once-daily tablet alternative for patients who prefer not to inject. Originally developed for diabetes, it also supports appetite control and weight management.",
           points: [
