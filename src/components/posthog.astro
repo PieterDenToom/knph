@@ -9,30 +9,4 @@
     ui_host: 'https://us.posthog.com',
     defaults: '2026-01-30'
   })
-
-  // Single conversion event for every phone / WhatsApp / email link on the site.
-  // Location comes from the nearest [data-cta-location], falling back to header/footer.
-  // Never add health or personal details here: these events are forwarded to ad platforms.
-  document.addEventListener('click', function (e) {
-    var link = e.target instanceof Element && e.target.closest('a[href]');
-    if (!link) return;
-    var href = link.getAttribute('href') || '';
-    var method =
-      href.indexOf('tel:') === 0 ? 'phone' :
-      href.indexOf('mailto:') === 0 ? 'email' :
-      /^https:\/\/(wa\.me|api\.whatsapp\.com)\//.test(href) ? 'whatsapp' :
-      null;
-    if (!method) return;
-    var tagged = link.closest('[data-cta-location]');
-    var location = tagged
-      ? tagged.getAttribute('data-cta-location')
-      : link.closest('header') ? 'header'
-      : link.closest('footer') ? 'footer'
-      : 'content';
-    window.posthog?.capture(
-      'contact_click',
-      { contact_method: method, cta_location: location, lang: document.documentElement.lang },
-      { send_instantly: true }
-    );
-  });
 </script>

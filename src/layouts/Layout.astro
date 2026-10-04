@@ -2,6 +2,8 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import PostHog from "../components/posthog.astro";
+import ContactTracking from "../components/ContactTracking.astro";
+import { GA_MEASUREMENT_ID, GOOGLE_ADS_ID } from "../lib/analytics";
 import { useTranslations, type Locale } from "../i18n";
 
 interface Props {
@@ -32,11 +34,10 @@ const pageDescription = description ?? t.meta.siteDescription;
 const fullTitle =
   pageTitle === t.meta.siteName ? pageTitle : `${pageTitle} — Klinik Ng Poh Huat`;
 
-// Replace this with your real GA4 Measurement ID (e.g. "G-ABC123XYZ").
-// When left as the placeholder below, the analytics snippet stays inert.
-const GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
-const analyticsEnabled =
-  GA_MEASUREMENT_ID && !GA_MEASUREMENT_ID.includes("XXXX");
+// One Google tag serves Google Ads and (once configured) GA4.
+const googleTagIds = [GOOGLE_ADS_ID, GA_MEASUREMENT_ID].filter(
+  (id) => !id.includes("XXXX"),
+);
 ---
 
 <!doctype html>
@@ -70,22 +71,24 @@ const analyticsEnabled =
     <PostHog />
 
     {
-      analyticsEnabled && (
+      googleTagIds.length > 0 && (
         <>
           <script
             is:inline
             async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${googleTagIds[0]}`}
           />
-          <script is:inline define:vars={{ GA_MEASUREMENT_ID }}>
+          <script is:inline define:vars={{ googleTagIds }}>
             window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);} // eslint-disable-line
+            window.gtag = function () { dataLayer.push(arguments); };
             gtag('js', new Date());
-            gtag('config', GA_MEASUREMENT_ID);
+            googleTagIds.forEach(function (id) { gtag('config', id); });
           </script>
         </>
       )
     }
+
+    <ContactTracking />
   </head>
   <body class:list={[{ "lang-zh": lang === "zh" }]}>
     <a class="skip-link" href="#main">{t.common.skipLink}</a>
