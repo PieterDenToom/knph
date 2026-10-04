@@ -219,8 +219,8 @@ export const en = {
     },
     onSite: {
       eyebrow: "On-Site Testing",
-      title: "On-site blood & urine testing",
-      lead: "Klinik Ng Poh Huat Bandar Puteri Puchong is equipped with in-house blood and urine analysers, so selected test results are available during the same clinic visit — faster results, earlier treatment decisions.",
+      title: "On-site blood, urine & dengue testing",
+      lead: "Klinik Ng Poh Huat Bandar Puteri Puchong is equipped with in-house blood and urine analysers and dengue rapid tests, so selected test results are available during the same clinic visit — faster results, earlier treatment decisions.",
       tests: [
         {
           title: "Full Blood Count (FBC)",
@@ -231,6 +231,16 @@ export const en = {
             "Platelet count",
           ],
           note: "An FBC may assist in assessing conditions such as anaemia, infection, inflammation and platelet abnormalities.",
+        },
+        {
+          title: "Dengue Rapid Test",
+          description: "A rapid blood test for patients with suspected dengue fever, detecting:",
+          items: [
+            "Dengue NS1 antigen (early infection, from the first days of fever)",
+            "Dengue IgM antibodies (recent infection)",
+            "Dengue IgG antibodies (past or secondary infection)",
+          ],
+          note: "Often performed together with an FBC to monitor platelet count. Seek care early if you have a high fever, severe headache, pain behind the eyes, body aches or a rash.",
         },
         {
           title: "Urine Analysis",
@@ -328,16 +338,6 @@ export const en = {
           "Tetanus / Diphtheria / Pertussis (Tdap)",
           "HPV (cervical cancer prevention)",
           "Shingles (for adults 50+)",
-        ],
-      },
-      {
-        title: "Paediatric & childhood",
-        items: [
-          "Routine childhood schedule (MOH-aligned)",
-          "Chickenpox (Varicella)",
-          "Hepatitis A / B booster",
-          "HPV (from age 9)",
-          "Catch-up vaccinations",
         ],
       },
       {

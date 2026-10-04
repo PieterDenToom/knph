@@ -224,8 +224,8 @@ export const zh: Translations = {
     },
     onSite: {
       eyebrow: "即场检验",
-      title: "即场血液与尿液检验",
-      lead: "蒲种公主城 Klinik Ng Poh Huat 诊所已配备院内血液与尿液分析仪,部分检验结果可于当次看诊时即可取得——更快获得结果,更早做出治疗决定。",
+      title: "即场血液、尿液与骨痛热症检验",
+      lead: "蒲种公主城 Klinik Ng Poh Huat 诊所已配备院内血液与尿液分析仪及骨痛热症快速检验,部分检验结果可于当次看诊时即可取得——更快获得结果,更早做出治疗决定。",
       tests: [
         {
           title: "全血细胞计数(FBC)",
@@ -236,6 +236,16 @@ export const zh: Translations = {
             "血小板计数",
           ],
           note: "FBC 有助评估贫血、感染、发炎与血小板异常等状况。",
+        },
+        {
+          title: "骨痛热症(登革热)快速检验",
+          description: "为疑似骨痛热症患者进行的快速血液检验,可检测:",
+          items: [
+            "登革病毒 NS1 抗原(早期感染,发烧初期即可检出)",
+            "登革热 IgM 抗体(近期感染)",
+            "登革热 IgG 抗体(过往或再次感染)",
+          ],
+          note: "通常与 FBC 一并进行,以监测血小板数量。如出现高烧、剧烈头痛、眼窝后疼痛、全身酸痛或皮疹,请及早求医。",
         },
         {
           title: "尿液分析",
@@ -333,16 +343,6 @@ export const zh: Translations = {
           "Tetanus / Diphtheria / Pertussis (Tdap) 破伤风/白喉/百日咳",
           "HPV(预防子宫颈癌)",
           "Shingles 带状疱疹(50 岁以上)",
-        ],
-      },
-      {
-        title: "儿童疫苗",
-        items: [
-          "卫生部建议的儿童常规接种时间表",
-          "Varicella 水痘",
-          "Hepatitis A / B 加强针",
-          "HPV(9 岁起)",
-          "补打与延后接种安排",
         ],
       },
       {

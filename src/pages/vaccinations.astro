@@ -8,7 +8,7 @@ import { useTranslations, type Locale } from "../i18n";
 const lang: Locale = "en";
 const t = useTranslations(lang);
 
-const groupIcons = ["shield", "family", "map"] as const;
+const groupIcons = ["shield", "map"] as const;
 
 const vaccines = await getCollection("vaccines");
 const sortedVaccines = [...vaccines].sort(
@@ -30,7 +30,7 @@ const sortedVaccines = [...vaccines].sort(
 
   <section class="section">
     <div class="container">
-      <div class="grid grid-3">
+      <div class="grid grid-2">
         {
           t.vaccinations.groups.map((g, idx) => (
             <article class="vgroup">
