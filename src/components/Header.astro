@@ -62,20 +62,49 @@ const links = [
     <div class="utility">
       <SearchModal lang={lang} />
       <LanguageSwitcher lang={lang} />
-      <a
-        href="tel:+60321818686"
-        class="btn btn-primary nav-cta"
-        aria-label={t.common.nav.callCta}
-      >
-        <Icon name="phone" size={16} />
-        <span class="cta-text">{t.common.cta.callShort}</span>
-      </a>
+      <details class="contact-menu">
+        <summary class="btn btn-primary nav-cta" aria-label={t.common.cta.contactShort}>
+          <Icon name="phone" size={16} />
+          <span class="cta-text">{t.common.cta.contactShort}</span>
+          <span class="chevron"><Icon name="chevron" size={14} /></span>
+        </summary>
+        <div class="contact-menu-panel">
+          <a href="tel:+60321818686">
+            <Icon name="phone" size={18} />
+            {t.common.nav.callCta}
+          </a>
+          <a href="https://wa.me/60321818686" target="_blank" rel="noopener noreferrer">
+            <Icon name="whatsapp" size={18} />
+            {t.common.cta.whatsapp}
+          </a>
+        </div>
+      </details>
       <label for="nav-toggle" class="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </label>
     </div>
   </div>
 </header>
+
+<script>
+  // Close the contact dropdown on outside click, Escape, or after picking an option.
+  const menu = document.querySelector<HTMLDetailsElement>(".contact-menu");
+  if (menu) {
+    document.addEventListener("click", (e) => {
+      if (!menu.open) return;
+      const target = e.target as Element;
+      if (!menu.contains(target) || target.closest(".contact-menu-panel a")) {
+        menu.open = false;
+      }
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && menu.open) {
+        menu.open = false;
+        menu.querySelector("summary")?.focus();
+      }
+    });
+  }
+</script>
 
 <style>
   .site-header {
@@ -143,6 +172,52 @@ const links = [
     white-space: nowrap;
   }
 
+  .contact-menu {
+    position: relative;
+  }
+  .contact-menu summary {
+    list-style: none;
+    cursor: pointer;
+  }
+  .contact-menu summary::-webkit-details-marker {
+    display: none;
+  }
+  .chevron {
+    display: inline-flex;
+    transition: transform 0.2s ease;
+  }
+  .contact-menu[open] .chevron {
+    transform: rotate(180deg);
+  }
+  .contact-menu-panel {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    z-index: 60;
+    min-width: 230px;
+    padding: 0.4rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+  }
+  .contact-menu-panel a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 0.8rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .contact-menu-panel a:hover,
+  .contact-menu-panel a:focus-visible {
+    background: var(--purple-50);
+    color: var(--purple-700);
+  }
+
   .nav-toggle {
     display: none;
   }
@@ -175,7 +250,8 @@ const links = [
       justify-content: center;
       border-radius: 6px;
     }
-    .nav-cta .cta-text {
+    .nav-cta .cta-text,
+    .nav-cta .chevron {
       display: none;
     }
   }

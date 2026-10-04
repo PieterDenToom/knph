@@ -50,6 +50,7 @@ export const zh: Translations = {
       contactClinic: "联系诊所",
       callPhone: "致电 +60 3-2181 8686",
       callShort: "致电",
+      contactShort: "联系",
     },
     footer: {
       tagline:

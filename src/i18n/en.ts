@@ -48,6 +48,7 @@ export const en = {
       contactClinic: "Contact the Clinic",
       callPhone: "Call +60 3-2181 8686",
       callShort: "Call",
+      contactShort: "Contact",
     },
     footer: {
       tagline:
