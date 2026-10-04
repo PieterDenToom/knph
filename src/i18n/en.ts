@@ -292,7 +292,7 @@ export const en = {
           title: "Enquire",
           bodyBefore: "Call",
           bodyAfter:
-            "or WhatsApp us with the test code (e.g. GVY7, HPVD). We'll confirm prep, fasting and timing.",
+            "or WhatsApp us with the name of the test you are interested in. We'll confirm prep, fasting and timing.",
         },
         {
           title: "Visit the clinic",
@@ -631,7 +631,6 @@ export const en = {
     },
   },
   offer: {
-    codePrefix: "Code",
     promoLabel: "Promo",
     tagOnBefore: "or",
     tagOnAfter: "when added to another test",

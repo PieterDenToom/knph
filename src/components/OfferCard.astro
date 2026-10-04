@@ -64,10 +64,9 @@ const detailsTarget =
       />
     )
   }
-  {badge && <span class="badge">{badge}</span>}
+  {badge && <span class:list={["badge", { inline: !showImage }]}>{badge}</span>}
 
   <header>
-    <span class="code">{t.offer.codePrefix} · {d.code}</span>
     <h3>{name}</h3>
     <p class="tagline">{tagline}</p>
   </header>
@@ -280,7 +279,6 @@ const detailsTarget =
   .offer.featured .features li svg {
     color: #c4b5fd;
   }
-  .offer.featured .code,
   .offer.featured .from,
   .offer.featured .meta dt {
     color: rgba(255, 255, 255, 0.65);
@@ -327,6 +325,13 @@ const detailsTarget =
     padding: 0.3rem 0.65rem;
     border-radius: 999px;
   }
+  /* Without an image there is nothing to overlay, so keep the badge in flow
+     above the title instead of on top of it. */
+  .badge.inline {
+    position: static;
+    align-self: flex-start;
+    margin-bottom: -0.5rem;
+  }
   :global(body.lang-zh) .badge {
     text-transform: none;
     letter-spacing: 0.04em;
@@ -337,22 +342,6 @@ const detailsTarget =
     backdrop-filter: blur(6px);
   }
 
-  header {
-    padding-right: 4rem;
-  }
-  .code {
-    display: block;
-    font-size: 0.72rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--purple-700);
-    margin-bottom: 0.25rem;
-  }
-  :global(body.lang-zh) .code {
-    text-transform: none;
-    letter-spacing: 0.04em;
-  }
   h3 {
     margin: 0 0 0.35rem;
     font-size: 1.2rem;
@@ -577,10 +566,5 @@ const detailsTarget =
   .footer .btn {
     padding: 0.55rem 1rem;
     font-size: 0.85rem;
-  }
-
-  /* Compact variant (carousel cards) */
-  .offer.compact header {
-    padding-right: 3rem;
   }
 </style>

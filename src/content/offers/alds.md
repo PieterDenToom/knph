@@ -1,7 +1,7 @@
 ---
 code: ALDS
-name: "Aldosterone-Renin Ratio (ALDS)"
-nameZh: "醛固酮/肾素比值 (ALDS)"
+name: "Aldosterone-Renin Ratio"
+nameZh: "醛固酮/肾素比值"
 category: specialised
 tagline: "Screen for primary aldosteronism — the most common reversible cause of hypertension."
 taglineZh: "筛查原发性醛固酮增多症——最常见、可治疗的继发性高血压成因。"

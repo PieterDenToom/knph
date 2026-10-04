@@ -1,7 +1,7 @@
 ---
 code: GVY7
-name: "Vitality Profile (GVY7)"
-nameZh: "全方位活力检查 (GVY7)"
+name: "Vitality Profile"
+nameZh: "全方位活力检查"
 category: screening
 tagline: "Our flagship full-body, full-vitality screen."
 taglineZh: "我们旗舰级的全身、全方位活力健康检查。"

@@ -297,7 +297,7 @@ export const zh: Translations = {
           title: "提出询问",
           bodyBefore: "致电",
           bodyAfter:
-            "或透过 WhatsApp 提供化验代码(例如 GVY7、HPVD)。我们会与您确认所需准备、空腹与时间安排。",
+            "或透过 WhatsApp 告诉我们您感兴趣的检验名称。我们会与您确认所需准备、空腹与时间安排。",
         },
         {
           title: "前来诊所",
@@ -629,7 +629,6 @@ export const zh: Translations = {
     },
   },
   offer: {
-    codePrefix: "代码",
     promoLabel: "优惠价",
     tagOnBefore: "或加购价",
     tagOnAfter: "(与其他化验一同进行时)",
