@@ -2,10 +2,12 @@
 import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/PageHero.astro";
 import Icon from "../components/Icon.astro";
+import { publicImage } from "../lib/publicImage";
 import { useTranslations, type Locale } from "../i18n";
 
 const lang: Locale = "en";
 const t = useTranslations(lang);
+const lifestylePhoto = publicImage("/photos/weight-management-lifestyle.webp");
 ---
 
 <Layout
@@ -18,6 +20,8 @@ const t = useTranslations(lang);
     eyebrow={t.weightManagement.hero.eyebrow}
     title={t.weightManagement.hero.title}
     description={t.weightManagement.hero.description}
+    image="/photos/weight-management-hero.webp"
+    imageAlt={t.weightManagement.hero.photoAlt}
   />
 
   <section class="section">
@@ -78,6 +82,17 @@ const t = useTranslations(lang);
         <h2>{t.weightManagement.timeline.title}</h2>
         <p>{t.weightManagement.timeline.lead}</p>
       </div>
+      {
+        lifestylePhoto && (
+          <img
+            class="timeline-photo"
+            src={lifestylePhoto}
+            alt={t.weightManagement.timeline.photoAlt}
+            loading="lazy"
+            decoding="async"
+          />
+        )
+      }
       <ol class="timeline">
         {
           t.weightManagement.timeline.steps.map((step) => (
@@ -129,7 +144,7 @@ const t = useTranslations(lang);
           <h3>{t.weightManagement.cta.title}</h3>
           <p>{t.weightManagement.cta.lead}</p>
         </div>
-        <div class="cta-buttons">
+        <div class="cta-buttons" data-cta-location="page_cta">
           <a href="tel:+60321818686" class="btn btn-primary">
             <Icon name="phone" size={16} /> {t.common.cta.callUs}
           </a>
@@ -146,6 +161,22 @@ const t = useTranslations(lang);
 </Layout>
 
 <style>
+  .timeline-photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    object-fit: cover;
+    object-position: center 30%;
+    margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    background: var(--purple-50);
+  }
+  @media (max-width: 700px) {
+    .timeline-photo {
+      aspect-ratio: 16 / 10;
+    }
+  }
   .elig {
     background: #fff;
     border: 1px solid var(--line);

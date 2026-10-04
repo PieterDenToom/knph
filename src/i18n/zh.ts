@@ -96,7 +96,7 @@ export const zh: Translations = {
           sub: "糖尿病 · 高血压 · 胆固醇",
         },
       },
-      photoAlt: "Nutzy 公共卫生诊所内景",
+      photoAlt: "Klinik Ng Poh Huat 医生正在为患者问诊",
     },
     packages: {
       eyebrow: "优惠配套",
@@ -143,6 +143,7 @@ export const zh: Translations = {
       ],
     },
     why: {
+      photoAlt: "Klinik Ng Poh Huat 医生耐心倾听患者",
       eyebrow: "病人为何信任我们",
       title: "在开药之前,先用心倾听。",
       lead: "我们相信,优质的基层医疗源自真正了解您——您的生活习惯、过往病史与最关心的事情。在 Klinik Ng Poh Huat,您会获得不被催促的诊询、易懂的解释,以及一位可以长期托付的医生。",
@@ -159,6 +160,7 @@ export const zh: Translations = {
       ],
     },
     location: {
+      photoAlt: "位于 Bandar Puteri Puchong, Jalan Puteri 5/7 的 Klinik Ng Poh Huat 店面",
       eyebrow: "诊所位置",
       title: "No. 101-G, Jalan Puteri 5/7",
       lead: "Bandar Puteri, 47100 Puchong, Selangor。停车方便、底层入口,就在主商铺街数步之遥。",
@@ -168,12 +170,14 @@ export const zh: Translations = {
   },
   about: {
     hero: {
+      photoAlt: "Klinik Ng Poh Huat 诊所内明亮的候诊走廊",
       eyebrow: "关于诊所",
       title: "家庭医学,扎根社区。",
       description:
         "Klinik Ng Poh Huat 是 Bandar Puteri 蒲种的一所社区全科诊所。我们打造一个宁静、现代的空间,专注于让家人健康的日常医疗,以及让慢性病稳定受控的长期照护。",
     },
     approach: {
+      photoAlt: "Klinik Ng Poh Huat 的挂号窗口与候诊区",
       title: "我们的医疗理念",
       paragraphs: [
         "我们以对待自己家人的方式照顾每一位病人:给予时间、坦诚相待、尊重每一位。每次诊询都从倾听开始——倾听您的症状、担忧与背后的脉络——然后才进行检查、诊断,以及一份您真正能跟着做的清晰治疗方案。",
@@ -217,6 +221,7 @@ export const zh: Translations = {
   },
   screening: {
     hero: {
+      photoAlt: "医生向患者讲解健康检查报告",
       eyebrow: "优惠配套",
       title: "实惠合理的化验配套与单项检验。",
       description:
@@ -328,6 +333,7 @@ export const zh: Translations = {
   },
   vaccinations: {
     hero: {
+      photoAlt: "护士在上臂为患者接种疫苗",
       eyebrow: "疫苗接种服务",
       title: "守护人生每一个阶段。",
       description:
@@ -358,6 +364,7 @@ export const zh: Translations = {
       },
     ],
     info: {
+      photoAlt: "家长陪同孩子轻松完成疫苗接种",
       eyebrow: "贴心提醒",
       title: "前来接种时,您可以期待什么",
       faq: [
@@ -393,6 +400,7 @@ export const zh: Translations = {
   },
   chronic: {
     hero: {
+      photoAlt: "医生为年长患者测量血压",
       eyebrow: "慢性病管理",
       title: "稳健、用心的长期照护。",
       description:
@@ -436,6 +444,7 @@ export const zh: Translations = {
       ],
     },
     plan: {
+      photoAlt: "医生与患者一起查看在家测量的数据",
       eyebrow: "我们如何与您同行",
       title: "您的专属慢性病管理方案",
       lead: "我们的方案围绕您的生活节奏而设计,而非反过来。以下是与我们同行的典型旅程。",
@@ -466,6 +475,7 @@ export const zh: Translations = {
   },
   weightManagement: {
     hero: {
+      photoAlt: "医生与患者讨论体重管理计划",
       eyebrow: "医学体重管理",
       title: "在医生指导下,迈向更健康的体重。",
       description:
@@ -522,6 +532,7 @@ export const zh: Translations = {
       ],
     },
     timeline: {
+      photoAlt: "一位女士在公园里享受清晨快走",
       eyebrow: "疗程预期",
       title: "治疗初期的变化",
       lead: "体重下降是循序渐进的过程。多数患者会经历以下变化:",
@@ -581,6 +592,7 @@ export const zh: Translations = {
   },
   contact: {
     hero: {
+      photoAlt: "位于 Bandar Puteri Puchong, Jalan Puteri 5/7 的 Klinik Ng Poh Huat 店面",
       eyebrow: "联系与位置",
       title: "随时联系——我们期待与您交流。",
       description:

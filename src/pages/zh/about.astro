@@ -30,6 +30,9 @@ const galleryImages = readdirSync(galleryDir)
     eyebrow={t.about.hero.eyebrow}
     title={t.about.hero.title}
     description={t.about.hero.description}
+    image="/clinic/clinic-image (3).jpeg"
+    imageAlt={t.about.hero.photoAlt}
+    imagePosition="center"
   />
 
   <section class="section">
@@ -37,6 +40,15 @@ const galleryImages = readdirSync(galleryDir)
       <div>
         <h2>{t.about.approach.title}</h2>
         {t.about.approach.paragraphs.map((p) => <p>{p}</p>)}
+        <img
+          class="approach-photo"
+          src={encodeURI("/clinic/clinic-image (11).jpeg")}
+          alt={t.about.approach.photoAlt}
+          width="1000"
+          height="750"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       <div class="values">
         {
@@ -117,6 +129,7 @@ const galleryImages = readdirSync(galleryDir)
   .values {
     display: grid;
     gap: 1.25rem;
+    align-content: start;
   }
   .value {
     display: flex;
@@ -148,6 +161,16 @@ const galleryImages = readdirSync(galleryDir)
     margin-top: 2.5rem;
     column-count: 3;
     column-gap: 1rem;
+  }
+  .approach-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    margin-top: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
   }
   .masonry img {
     display: block;

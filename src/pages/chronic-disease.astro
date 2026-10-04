@@ -2,10 +2,12 @@
 import Layout from "../layouts/Layout.astro";
 import PageHero from "../components/PageHero.astro";
 import Icon from "../components/Icon.astro";
+import { publicImage } from "../lib/publicImage";
 import { useTranslations, localizedHref, type Locale } from "../i18n";
 
 const lang: Locale = "en";
 const t = useTranslations(lang);
+const planPhoto = publicImage("/photos/chronic-care-plan.webp");
 
 const conditionIcons = [
   "pill",
@@ -27,6 +29,8 @@ const conditionIcons = [
     eyebrow={t.chronic.hero.eyebrow}
     title={t.chronic.hero.title}
     description={t.chronic.hero.description}
+    image="/photos/chronic-care-hero.webp"
+    imageAlt={t.chronic.hero.photoAlt}
   />
 
   <section class="section">
@@ -59,6 +63,17 @@ const conditionIcons = [
         <span class="eyebrow">{t.chronic.plan.eyebrow}</span>
         <h2>{t.chronic.plan.title}</h2>
         <p>{t.chronic.plan.lead}</p>
+        {
+          planPhoto && (
+            <img
+              class="plan-photo"
+              src={planPhoto}
+              alt={t.chronic.plan.photoAlt}
+              loading="lazy"
+              decoding="async"
+            />
+          )
+        }
       </div>
       <ol class="timeline">
         {
@@ -83,7 +98,7 @@ const conditionIcons = [
           <h3>{t.chronic.cta.title}</h3>
           <p>{t.chronic.cta.lead}</p>
         </div>
-        <div class="cta-buttons">
+        <div class="cta-buttons" data-cta-location="page_cta">
           <a href="tel:+60321818686" class="btn btn-primary">
             <Icon name="phone" size={16} /> {t.common.cta.callUs}
           </a>
@@ -142,6 +157,21 @@ const conditionIcons = [
   @media (max-width: 900px) {
     .plan {
       grid-template-columns: 1fr;
+    }
+  }
+  .plan-photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    display: block;
+    margin-top: 1.75rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    background: var(--purple-50);
+  }
+  @media (max-width: 900px) {
+    .plan-photo {
+      aspect-ratio: 16 / 10;
     }
   }
   .timeline {

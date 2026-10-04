@@ -67,6 +67,8 @@ const groups = [
     eyebrow={t.screening.hero.eyebrow}
     title={t.screening.hero.title}
     description={t.screening.hero.description}
+    image="/photos/health-screening-hero.webp"
+    imageAlt={t.screening.hero.photoAlt}
   />
 
   <section class="section on-site">
@@ -160,7 +162,7 @@ const groups = [
         <h2>{t.screening.how.title}</h2>
       </div>
       <div class="grid grid-3 steps">
-        <div class="step">
+        <div class="step" data-cta-location="how_it_works">
           <span class="num">1</span>
           <h3>{t.screening.how.steps[0].title}</h3>
           <p>
@@ -186,7 +188,7 @@ const groups = [
           <h3>{t.screening.cta.title}</h3>
           <p>{t.screening.cta.lead}</p>
         </div>
-        <div class="cta-buttons">
+        <div class="cta-buttons" data-cta-location="page_cta">
           <a href="tel:+60321818686" class="btn btn-primary">
             <Icon name="phone" size={16} /> {t.common.cta.callUs}
           </a>

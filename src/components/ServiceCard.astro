@@ -19,11 +19,31 @@ interface Props {
   description: string;
   href?: string;
   cta?: string;
+  /** Decorative header photo (path under /public) */
+  image?: string;
 }
-const { icon, title, description, href, cta = "Learn more" } = Astro.props;
+const {
+  icon,
+  title,
+  description,
+  href,
+  cta = "Learn more",
+  image,
+} = Astro.props;
 ---
 
-<article class="svc">
+<article class:list={["svc", { "has-image": image }]}>
+  {
+    image && (
+      <img
+        class="svc-img"
+        src={encodeURI(image)}
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
+    )
+  }
   <div class="icon-wrap">
     <Icon name={icon} size={26} />
   </div>
@@ -67,6 +87,24 @@ const { icon, title, description, href, cta = "Learn more" } = Astro.props;
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
     border-color: var(--purple-100);
+  }
+  .has-image {
+    overflow: hidden;
+  }
+  .svc-img {
+    display: block;
+    width: calc(100% + 3.5rem);
+    max-width: none;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    margin: -1.75rem -1.75rem 0;
+    background: var(--purple-50);
+  }
+  .has-image .icon-wrap {
+    position: relative;
+    margin-top: -25px;
+    background: #fff;
+    box-shadow: var(--shadow-md);
   }
   .icon-wrap {
     width: 50px;

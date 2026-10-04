@@ -3,10 +3,13 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import PageHero from "../../components/PageHero.astro";
 import Icon from "../../components/Icon.astro";
+import { publicImage } from "../../lib/publicImage";
 import { useTranslations, type Locale } from "../../i18n";
 
 const lang: Locale = "zh";
 const t = useTranslations(lang);
+
+const visitPhoto = publicImage("/photos/vaccinations-visit.webp");
 
 const groupIcons = ["shield", "map"] as const;
 
@@ -26,6 +29,8 @@ const sortedVaccines = [...vaccines].sort(
     eyebrow={t.vaccinations.hero.eyebrow}
     title={t.vaccinations.hero.title}
     description={t.vaccinations.hero.description}
+    image="/photos/vaccinations-hero.webp"
+    imageAlt={t.vaccinations.hero.photoAlt}
   />
 
   <section class="section">
@@ -121,19 +126,32 @@ const sortedVaccines = [...vaccines].sort(
           }
         </ul>
       </div>
-      <aside class="card cta-card">
-        <h3>{t.vaccinations.cta.title}</h3>
-        <p>{t.vaccinations.cta.lead}</p>
-        <div class="buttons">
-          <a href="tel:+60321818686" class="btn btn-primary">
-            <Icon name="phone" size={16} /> {t.common.cta.callPhone}
-          </a>
-          <a
-            href="https://wa.me/60321818686"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-ghost">{t.common.cta.whatsapp}</a
-          >
+      <aside class="side">
+        {
+          visitPhoto && (
+            <img
+              class="side-photo"
+              src={visitPhoto}
+              alt={t.vaccinations.info.photoAlt}
+              loading="lazy"
+              decoding="async"
+            />
+          )
+        }
+        <div class="card cta-card">
+          <h3>{t.vaccinations.cta.title}</h3>
+          <p>{t.vaccinations.cta.lead}</p>
+          <div class="buttons" data-cta-location="page_cta">
+            <a href="tel:+60321818686" class="btn btn-primary">
+              <Icon name="phone" size={16} /> {t.common.cta.callPhone}
+            </a>
+            <a
+              href="https://wa.me/60321818686"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-ghost">{t.common.cta.whatsapp}</a
+            >
+          </div>
         </div>
       </aside>
     </div>
@@ -288,9 +306,27 @@ const sortedVaccines = [...vaccines].sort(
     color: var(--muted);
     font-size: 0.95rem;
   }
-  .cta-card {
+  .side {
     position: sticky;
     top: 110px;
+    display: grid;
+    gap: 1rem;
+  }
+  @media (max-width: 900px) {
+    .side {
+      position: static;
+    }
+  }
+  .side-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    background: var(--purple-50);
+  }
+  .cta-card {
     background: linear-gradient(
       160deg,
       var(--purple-700) 0%,

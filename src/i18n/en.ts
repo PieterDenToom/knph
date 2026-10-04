@@ -91,7 +91,7 @@ export const en = {
         vacc: { title: "Vaccinations", sub: "Adults & children" },
         chronic: { title: "Chronic care", sub: "Diabetes · BP · Cholesterol" },
       },
-      photoAlt: "Inside Klinik Nutzy Public Health",
+      photoAlt: "A doctor in consultation with a patient at Klinik Ng Poh Huat",
     },
     packages: {
       eyebrow: "Promotional Packages",
@@ -138,6 +138,7 @@ export const en = {
       ],
     },
     why: {
+      photoAlt: "A doctor at Klinik Ng Poh Huat listening to a patient",
       eyebrow: "Why our patients trust us",
       title: "A clinic that listens before it prescribes.",
       lead: "We believe great primary care starts with taking the time to understand you — your habits, your history and what matters most. At Klinik Ng Poh Huat you'll find an unhurried consult, plain-language explanations and a doctor you can keep coming back to.",
@@ -154,6 +155,7 @@ export const en = {
       ],
     },
     location: {
+      photoAlt: "The Klinik Ng Poh Huat shopfront on Jalan Puteri 5/7, Bandar Puteri Puchong",
       eyebrow: "Find us",
       title: "No. 101-G, Jalan Puteri 5/7",
       lead: "Bandar Puteri, 47100 Puchong, Selangor. Easy parking, ground-floor access, just a few steps from the main row of shops.",
@@ -163,12 +165,14 @@ export const en = {
   },
   about: {
     hero: {
+      photoAlt: "The bright waiting corridor inside Klinik Ng Poh Huat",
       eyebrow: "About the Clinic",
       title: "Family medicine, rooted in our community.",
       description:
         "Klinik Ng Poh Huat is a neighbourhood GP clinic in Bandar Puteri Puchong. We're a calm, modern space focused on the everyday medicine that keeps families well — and the longer-term care that keeps chronic conditions in check.",
     },
     approach: {
+      photoAlt: "The reception window and waiting area at Klinik Ng Poh Huat",
       title: "Our approach to care",
       paragraphs: [
         "We treat patients the way we'd want our own family treated: with time, honesty and respect. Every consult begins with listening — to your symptoms, your worries and the context behind them — before we move to examination, diagnosis and a clear plan you can actually follow.",
@@ -212,6 +216,7 @@ export const en = {
   },
   screening: {
     hero: {
+      photoAlt: "A doctor walking a patient through their health screening results",
       eyebrow: "Promotional Packages",
       title: "Lab packages and tests, fairly priced.",
       description:
@@ -323,6 +328,7 @@ export const en = {
   },
   vaccinations: {
     hero: {
+      photoAlt: "A nurse giving a vaccination in the upper arm",
       eyebrow: "Vaccination Services",
       title: "Protection for every stage of life.",
       description:
@@ -353,6 +359,7 @@ export const en = {
       },
     ],
     info: {
+      photoAlt: "A parent and child at a relaxed vaccination visit",
       eyebrow: "Good to know",
       title: "What to expect at your vaccination visit",
       faq: [
@@ -388,6 +395,7 @@ export const en = {
   },
   chronic: {
     hero: {
+      photoAlt: "A doctor checking an older patient's blood pressure",
       eyebrow: "Chronic Disease Management",
       title: "Steady, attentive care for long-term conditions.",
       description:
@@ -431,6 +439,7 @@ export const en = {
       ],
     },
     plan: {
+      photoAlt: "A doctor and patient reviewing home readings together",
       eyebrow: "How we work with you",
       title: "Your personal chronic care plan",
       lead: "We design care around your routine — not the other way around. Here's what a typical journey with us looks like.",
@@ -461,6 +470,7 @@ export const en = {
   },
   weightManagement: {
     hero: {
+      photoAlt: "A doctor discussing a weight management plan with a patient",
       eyebrow: "Medical Weight Management",
       title: "A medically supervised path to healthier weight.",
       description:
@@ -517,6 +527,7 @@ export const en = {
       ],
     },
     timeline: {
+      photoAlt: "A woman enjoying a brisk morning walk in the park",
       eyebrow: "What to expect",
       title: "Your first weeks on treatment",
       lead: "Weight loss is gradual and builds over time. Most patients notice a pattern like this:",
@@ -582,6 +593,7 @@ export const en = {
   },
   contact: {
     hero: {
+      photoAlt: "The Klinik Ng Poh Huat shopfront on Jalan Puteri 5/7, Bandar Puteri Puchong",
       eyebrow: "Contact & Location",
       title: "Get in touch — we'd love to hear from you.",
       description:

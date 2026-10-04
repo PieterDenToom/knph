@@ -21,22 +21,25 @@ const mapEmbed =
     eyebrow={t.contact.hero.eyebrow}
     title={t.contact.hero.title}
     description={t.contact.hero.description}
+    image="/clinic/clinic-image (1).jpeg"
+    imageAlt={t.contact.hero.photoAlt}
+    imagePosition="center 30%"
   />
 
   <section class="section">
     <div class="container layout">
-      <div class="info">
+      <div class="info" data-cta-location="contact_info">
         <div class="info-card">
           <div class="icon-wrap"><Icon name="phone" size={22} /></div>
           <div>
             <span class="label">{t.contact.info.phoneLabel}</span>
-            <a href="tel:+60321818686" class="value" id="contact-phone-link">+60 3-2181 8686</a>
+            <a href="tel:+60321818686" class="value">+60 3-2181 8686</a>
             <a
               href="https://wa.me/60321818686"
               target="_blank"
               rel="noopener noreferrer"
               class="link"
-              id="contact-whatsapp-link">{t.contact.info.openWhatsapp}</a
+              >{t.contact.info.openWhatsapp}</a
             >
           </div>
         </div>
@@ -45,7 +48,7 @@ const mapEmbed =
           <div class="icon-wrap"><Icon name="clipboard" size={22} /></div>
           <div>
             <span class="label">{t.contact.info.emailLabel}</span>
-            <a href="mailto:knph.leong@gmail.com" class="value" id="contact-email-link">knph.leong@gmail.com</a>
+            <a href="mailto:knph.leong@gmail.com" class="value">knph.leong@gmail.com</a>
             <span class="meta">{t.contact.info.emailMeta}</span>
           </div>
         </div>
@@ -157,15 +160,6 @@ const mapEmbed =
 </Layout>
 
 <script is:inline>
-  document.getElementById('contact-phone-link')?.addEventListener('click', function () {
-    window.posthog?.capture('phone_cta_clicked', { location: 'contact_page' });
-  });
-  document.getElementById('contact-whatsapp-link')?.addEventListener('click', function () {
-    window.posthog?.capture('whatsapp_cta_clicked', { location: 'contact_page' });
-  });
-  document.getElementById('contact-email-link')?.addEventListener('click', function () {
-    window.posthog?.capture('email_clicked', { location: 'contact_page' });
-  });
   document.getElementById('contact-googlemaps-link')?.addEventListener('click', function () {
     window.posthog?.capture('get_directions_clicked', { provider: 'google_maps', location: 'contact_page' });
   });
